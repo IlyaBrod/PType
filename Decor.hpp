@@ -3,7 +3,7 @@
 
 #include "Object.hpp"
 
-class Decor : Object{
+class Decor : public Object{
 
 };
 

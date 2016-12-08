@@ -3,7 +3,7 @@
 
 #include "Bullet.hpp"
 
-class Shot : Bullet{
+class Shot : public Bullet{
 
 };
 

@@ -3,7 +3,7 @@
 
 #include "Unit.hpp"
 
-class Enemy : Unit {
+class Enemy : public Unit {
 
 };
 
