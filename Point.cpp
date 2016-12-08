@@ -27,3 +27,17 @@ Point Point::operator-(const Point &p){
 	Point q(x-p.x, y-p.y);
 	return q ;
 }
+
+int Point::getX()const{
+	return x ;
+}
+int Point::getY()const{
+	return y ;
+}
+
+void Point::setX(const int &_x){
+	x = _x ;
+}
+void Point::setY(const int &_y){
+	y = _y ;
+}
