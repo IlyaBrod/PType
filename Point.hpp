@@ -14,6 +14,12 @@ class Point{
 		Point& operator-=(const Point &p);
 		Point operator+(const Point &p);
 		Point operator-(const Point &p);
+
+		int getX()const ;
+		int getY()const ;
+
+		void setX(const int &x);
+		void setY(const int &y);
 };
 
 #endif
