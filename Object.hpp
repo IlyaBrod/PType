@@ -14,7 +14,7 @@ class Object : public Point{
 		int frequency;
 		
 		//collision activated or not
-		bool collide;
+		bool solid;
 		
 		virtual void inCollide();
 		
