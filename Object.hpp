@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Point.hpp"
 
-class Object : Point{
+class Object : public Point{
 	protected :
 		sf::Texture texture ;
 		Point origine;
