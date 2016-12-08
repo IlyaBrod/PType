@@ -21,7 +21,16 @@ Object::Object(sf::Texture texture,Point origine,Rectangle box):Point(origine.ge
 }
 
 
-void Object::Display()
+void Object::collide(Object obj)
+{
+	if(hitbox.intersect(obj.hitbox)==true)
+	{
+		inCollide();
+	}
+	
+}
+
+void Object::display()
 {
 	
 	
