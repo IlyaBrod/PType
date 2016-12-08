@@ -3,7 +3,7 @@
 
 #include "Object.hpp"
 
-class Item : Object{
+class Item : public Object{
 
 
 };

@@ -3,7 +3,7 @@
 
 #include "Object.hpp"
 
-class Unit : Object{
+class Unit : public Object{
 	protected :
 		int life ;
 	public :

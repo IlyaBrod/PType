@@ -3,7 +3,7 @@
 
 #include "Unit.hpp"
 
-class Player : Unit{
+class Player : public Unit{
 
 };
 
