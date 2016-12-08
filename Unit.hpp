@@ -8,6 +8,10 @@ class Unit : public Object{
 		int life ;
 	public :
 		Unit(sf::Texture texture, Point point, int life);
+		
+		void inCollide();
+
+		void die();
 };
 
 #endif
