@@ -3,12 +3,12 @@
 
 #include <SFML/Graphics.hpp>
 #include "Point.hpp"
+#include "Rectangle.hpp"
 
 class Object : public Point{
 	protected :
 		sf::Texture texture ;
-		Point origine;
-		
+		Rectangle hitbox;
 		//frame rate for texture animation
 		int frequency;
 		
@@ -18,7 +18,7 @@ class Object : public Point{
 	public :
 		Object();
 		Object(sf::Texture texture);
-		Object(sf::Texture texture, Point point);
+		Object(sf::Texture texture, Point origine, Rectangle box);
 		
 		/**
 		 * Display the object on the screen
