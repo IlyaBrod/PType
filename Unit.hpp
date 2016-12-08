@@ -6,7 +6,8 @@
 class Unit : Object{
 	protected :
 		int life ;
-		
+	public :
+		Unit(sf::Texture texture, Point point, int life);
 };
 
 #endif
