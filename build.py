@@ -100,7 +100,7 @@ clean :
 	
 cleanAll :
 	rm -rf *.o
-	rm -rf $(EXEC)
+	rm -rf $(Ptype-app)
 """
 
 
