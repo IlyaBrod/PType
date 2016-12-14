@@ -1,5 +1,5 @@
-#ifndef CLASS_WEAPON_DEFINED
-#define CLASS_WEAPON_DEFINED
+#ifndef CLASS_WEAPON_HPP
+#define CLASS_WEAPON_HPP
 
 #include "Object.hpp"
 #include "WEAPON_CONFIG.hpp"

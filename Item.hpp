@@ -1,5 +1,5 @@
-#ifndef CLASS_ITEM_DEFINED
-#define CLASS_ITEM_DEFINED
+#ifndef CLASS_ITEM_HPP
+#define CLASS_ITEM_HPP
 
 #include "Object.hpp"
 

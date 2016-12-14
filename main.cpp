@@ -1,5 +1,4 @@
-#include "generalFunctions.hpp"
-#include "Point.hpp"
+/*#include "generalFunctions.hpp"
 #include "Rectangle.hpp"
 #include "Object.hpp"
 #include "Item.hpp"
@@ -8,7 +7,9 @@
 #include "Player.hpp"
 #include "Enemy.hpp"
 #include "Explosion.hpp"
-#include "Decor.hpp"
+#include "Decor.hpp"*/
+#include "WEAPON_CONFIG.hpp"
+#include "Weapon.hpp"
 
 using namespace std ;
 
