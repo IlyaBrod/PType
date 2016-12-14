@@ -4,7 +4,7 @@ from subprocess import call
 CONTENT_PRE = """
 LD = g++
 CC = g++
-EXEC = Ptype
+EXEC = PType
 all : $(EXEC)
 
 """
@@ -76,7 +76,7 @@ CONTENT+="\n"
 #Compile .cpp
 for name in list_o:
 	CONTENT+=name+": "+name[:-2]+".cpp" +" "+ name[:-2]+".hpp"+"\n"
-	CONTENT+="\t"+GCC+" -c "+name[:-2]+".cpp" + "-o" + name+"\n"
+	CONTENT+="\t"+GCC+" -c "+name[:-2]+".cpp" + " -o " + name+"\n"
 	CONTENT+="\n"
 
 
@@ -96,9 +96,4 @@ cleanAll :
 f = open("Makefile","w")
 f.write(CONTENT_PRE+CONTENT+CONTENT_POST)
 f.close()
-
-
-#call(["make all"])
 	
-raw_input("Press to continue")
-
