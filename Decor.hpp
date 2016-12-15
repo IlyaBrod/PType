@@ -4,7 +4,8 @@
 #include "Object.hpp"
 
 class Decor : public Object{
-
+    protected :
+        void inCollide();
 };
 
 #endif

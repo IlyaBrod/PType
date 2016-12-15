@@ -4,7 +4,8 @@
 #include "Bullet.hpp"
 
 class Shot : public Bullet{
-
+    protected :
+        void inCollide();
 };
 
 #endif

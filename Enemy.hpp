@@ -4,7 +4,8 @@
 #include "Unit.hpp"
 
 class Enemy : public Unit {
-
+    protected :
+        void inCollide();
 };
 
 #endif

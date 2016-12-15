@@ -5,7 +5,8 @@
 
 class Item : public Object{
 
-
+    protected :
+        void inCollide();
 };
 
 #endif
