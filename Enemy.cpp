@@ -1,5 +1,5 @@
 #include "Enemy.hpp"
 
-void Enemy::inCollide(){
+void Enemy::inCollide(Object &obj){
 
 }

@@ -1,5 +1,5 @@
 #include "Decor.hpp"
 
-void Decor::inCollide(){
+void Decor::inCollide(Object &obj){
 
 }

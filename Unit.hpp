@@ -9,11 +9,11 @@ class Unit : public Object{
 		int life ;
 		Weapon weapon;
 		//Weapon* weapons[];
-		
+
 	public :
 		Unit(sf::Texture texture, Point point, Rectangle box, int life);
-		
-		void inCollide();
+
+		void inCollide(Object &obj);
 
 		void die();
 };

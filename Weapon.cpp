@@ -9,6 +9,6 @@ int Weapon::getDomage()
 	return damage;
 }
 
-void Weapon::inCollide(){
+void Weapon::inCollide(Object &obj){
 
 }

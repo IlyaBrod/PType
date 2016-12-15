@@ -5,19 +5,23 @@
 #include "Point.hpp"
 
 class Rectangle : public Point{
-	protected : 
+	protected :
 		int width ;
 		int height ;
 
 	public :
-		Rectangle(const int &x=0, const int &y=0, const int &width=0, const int &height=0);
-
+    //constructors
+	    Rectangle();
+		Rectangle(const int &x, const int &y, const int &width, const int &height);
+		Rectangle(const Point &pA, const Point &pB=Point());
+		Rectangle(const Rectangle &rect);
+    //accessors read
 		int getW()const ;
 		int getH()const ;
-
+    //accessors write
 		void setW(const int &width);
 		void setH(const int &height);
-
+    //check Rectangles intersection
 		bool intersect(const Rectangle &rect)const;
 };
 
