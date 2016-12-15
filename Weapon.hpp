@@ -12,6 +12,8 @@ class Weapon : public Object{
 
 	public :
 		Weapon(sf::Texture texture, const int dmg);
+		
+		int getDomage();
 };
 
 #endif
