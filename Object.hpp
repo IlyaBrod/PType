@@ -18,7 +18,7 @@ class Object : public Point{
 		//object is visible
 		bool visible;
 
-        void inCollide();
+        virtual void inCollide();
 
 	public :
 		Object();
