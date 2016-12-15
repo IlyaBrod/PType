@@ -1,9 +1,9 @@
-#ifndef CLASS_ENEMY_HPP
-#define CLASS_ENEMY_HPP
+#ifndef CLASS_BULLET_HPP
+#define CLASS_BULLET_HPP
 
-#include "Bullet.hpp"
+#include "Object.hpp"
 
-class Shot : public Bullet{
+class Bullet : public Object{
     protected :
         void inCollide();
 };
