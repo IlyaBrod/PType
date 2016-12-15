@@ -6,7 +6,7 @@
 class Player : public Unit{
 
     protected :
-        void inCollide();
+        void inCollide(Object &obj);
 };
 
 #endif

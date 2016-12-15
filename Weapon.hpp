@@ -10,11 +10,11 @@ class Weapon : public Object
 {
 	protected :
 		int damage ;
-		void inCollide();
+		void inCollide(Object &obj);
 	public :
 		Weapon();
 		Weapon(sf::Texture texture, const int dmg);
-		
+
 		int getDomage();
 };
 

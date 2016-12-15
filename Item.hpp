@@ -6,7 +6,7 @@
 class Item : public Object{
 
     protected :
-        void inCollide();
+        void inCollide(Object &obj);
 };
 
 #endif

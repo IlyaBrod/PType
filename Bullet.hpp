@@ -10,7 +10,7 @@ class Bullet : public Object{
         int dmg ;
         bool team ;
         //inCollide function : destroy bullet (set solid = false)
-        void inCollide();
+        void inCollide(Object &obj);
 
     public :
         Bullet();

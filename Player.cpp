@@ -1,5 +1,5 @@
 #include "Player.hpp"
 
-void Player::inCollide(){
+void Player::inCollide(Object &obj){
 
 }

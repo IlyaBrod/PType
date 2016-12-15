@@ -8,6 +8,6 @@ Bullet::Bullet(sf::Texture _texture, const Point &origine, const Rectangle &box,
 
 }
 
-void Bullet::inCollide(){
+void Bullet::inCollide(Object &obj){
 
 }

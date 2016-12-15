@@ -1,5 +1,5 @@
 #include "Item.hpp"
 
-void Item::inCollide(){
+void Item::inCollide(Object &obj){
 
 }

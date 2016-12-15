@@ -20,7 +20,7 @@ class Object : public Point{
 		bool visible;
 
     //implement collision effects (virtual function)
-        virtual void inCollide(Object &obj);
+        virtual void inCollide(Object &obj)=0;
 
 	public :
     //constructors

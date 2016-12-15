@@ -5,7 +5,7 @@
 
 class Explosion : public Object{
     protected :
-        void inCollide();
+        void inCollide(Object &obj);
 };
 
 #endif

@@ -5,7 +5,7 @@
 
 class Decor : public Object{
     protected :
-        void inCollide();
+        void inCollide(Object &obj);
 };
 
 #endif
