@@ -8,24 +8,24 @@
 class Object : public Point{
 	protected :
 		sf::Texture texture ;
-		
+
 		Rectangle hitbox;
 		//frame rate for texture animation
 		int frequency;
-		
+
 		//collision activated or not
 		bool solid;
-		
-		virtual void inCollide();
-		
+
+        void inCollide();
+
 	public :
 		Object();
 		Object(sf::Texture texture);
 		Object(sf::Texture texture, Point origine, Rectangle box);
-		
-		
+
+
 		void collide(Object obj);
-		
+
 		/**
 		 * Display the object on the screen
 		 * at position given by origine Point
