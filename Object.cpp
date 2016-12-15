@@ -25,7 +25,7 @@ void Object::inCollide()
 }
 void Object::collide(const Object &obj)
 {
-	if(hitbox.intersect(obj.hitbox)==true)
+	if(solid && hitbox.intersect(obj.hitbox) && obj.solid)
 	{
 		inCollide();
 	}
@@ -34,6 +34,7 @@ void Object::collide(const Object &obj)
 
 void Object::display()
 {
-
-
+    if(visible){
+        //display the texture
+    }
 }
