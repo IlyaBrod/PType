@@ -20,7 +20,7 @@ class Object : public Point{
 		bool visible;
 
     //implement collision effects (virtual function)
-        virtual void inCollide();
+        virtual void inCollide(Object &obj);
 
 	public :
     //constructors
@@ -28,15 +28,15 @@ class Object : public Point{
 		Object(sf::Texture texture);
 		Object(sf::Texture texture, Point origine, Rectangle box);
 		Object(sf::Texture texture, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible);
-        //accessors
+    //accessors read
         bool get_solid()const{return solid;}
         bool get_visible()const{return visible;}
-        //setters
+    //accessors write
         void set_solid(bool solid){this->solid = solid;}
         void set_visible(bool visible){this->visible = visible;}
 
-
-		void collide(const Object &obj);
+    //check collision and get effects through inCollision function
+		void collide(Object &obj);
 
 		/**
 		 * Display the object on the screen
