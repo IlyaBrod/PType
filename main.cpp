@@ -24,7 +24,7 @@ int main(int argv, char** argc){
 	
 	*/
 	
-	sf::Sprite poutine = newSprite("poutine.png");
+	sf::Sprite poutine = newSprite("Launcher.jpg");
 	 sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
     
