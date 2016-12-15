@@ -5,12 +5,15 @@
 #include "Point.hpp"
 
 class Rectangle : public Point{
-	protected : 
+	protected :
 		int width ;
 		int height ;
 
 	public :
-		Rectangle(const int &x=0, const int &y=0, const int &width=0, const int &height=0);
+	    Rectangle();
+		Rectangle(const int &x, const int &y, const int &width, const int &height);
+		Rectangle(const Point &pA, const Point &pB=Point());
+		Rectangle(const Rectangle &rect);
 
 		int getW()const ;
 		int getH()const ;
