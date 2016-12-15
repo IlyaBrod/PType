@@ -1,5 +1,5 @@
 #ifndef CLASS_POINT_HPP
-#define ClASS_POINT_HPP
+#define CLASS_POINT_HPP
 
 class Point{
 	protected :

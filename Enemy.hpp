@@ -1,5 +1,5 @@
-#ifndef CLASS_ENEMY_DEFINED
-#define CLASS_ENEMY_DEFINED
+#ifndef CLASS_ENEMY_HPP
+#define CLASS_ENEMY_HPP
 
 #include "Unit.hpp"
 

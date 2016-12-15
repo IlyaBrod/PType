@@ -74,7 +74,19 @@ CONTENT+= "-o Ptype-app -lsfml-graphics -lsfml-window -lsfml-system \n"
 CONTENT+="\n"
 
 #Compile .cpp
-for name in list_o:
+list_o.remove("main.o")
+#Main
+name="main.o"
+CONTENT+=name+": "+name[:-2]+".cpp"
+for oname in list_o:
+	CONTENT+= " "+oname[:-2]+".hpp"
+	
+CONTENT+="\n"
+CONTENT+="\t"+GCC+" -c "+name[:-2]+".cpp" + " -o " + name+"\n"
+CONTENT+="\n"
+
+
+for name in list_o:	
 	CONTENT+=name+": "+name[:-2]+".cpp" +" "+ name[:-2]+".hpp"+"\n"
 	CONTENT+="\t"+GCC+" -c "+name[:-2]+".cpp" + " -o " + name+"\n"
 	CONTENT+="\n"
@@ -88,7 +100,7 @@ clean :
 	
 cleanAll :
 	rm -rf *.o
-	rm -rf $(EXEC)
+	rm -rf $(Ptype-app)
 """
 
 
