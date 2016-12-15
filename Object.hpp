@@ -8,24 +8,32 @@
 class Object : public Point{
 	protected :
 		sf::Texture texture ;
-		
+
 		Rectangle hitbox;
 		//frame rate for texture animation
 		int frequency;
-		
+
 		//collision activated or not
 		bool solid;
-		
-		virtual void inCollide();
-		
+		//object is visible
+		bool visible;
+
+        void inCollide();
+
 	public :
 		Object();
 		Object(sf::Texture texture);
 		Object(sf::Texture texture, Point origine, Rectangle box);
-		
-		
-		void collide(Object obj);
-		
+        //accessors
+        bool get_solid()const{return solid;}
+        bool get_visible()const{return visible;}
+        //setters
+        void set_solid(bool solid){this->solid = solid;}
+        void set_visible(bool visible){this->visible = visible;}
+
+
+		void collide(const Object &obj);
+
 		/**
 		 * Display the object on the screen
 		 * at position given by origine Point
