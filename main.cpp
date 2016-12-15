@@ -10,6 +10,8 @@
 #include "Decor.hpp"*/
 #include "WEAPON_CONFIG.hpp"
 #include "Weapon.hpp"
+#include "generalFunctions.hpp"
+#include <SFML/Window.hpp>
 
 using namespace std ;
 
@@ -22,5 +24,30 @@ int main(int argv, char** argc){
 	
 	*/
 	
+	sf::Sprite poutine = newSprite("Launcher.jpg");
+	 sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+
+    
+    while (window.isOpen())
+    {
+     
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+    
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+    
+        window.clear(sf::Color::Black);
+
+
+
+        window.draw(poutine);
+        window.display();
+    }
+	
 	return 0 ;
 }
+
