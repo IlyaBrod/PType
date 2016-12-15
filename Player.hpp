@@ -5,6 +5,8 @@
 
 class Player : public Unit{
 
+    protected :
+        void inCollide();
 };
 
 #endif

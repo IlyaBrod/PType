@@ -4,7 +4,8 @@
 #include "Object.hpp"
 
 class Explosion : public Object{
-
+    protected :
+        void inCollide();
 };
 
 #endif
