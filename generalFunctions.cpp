@@ -8,10 +8,10 @@ bool max(const int &a, const int &b){
 	return (a<b)? b : a ;
 }
 
-sf::Sprite newSprite(std::string path)
+sf::Sprite* newSprite(std::string path)
 {
-	sf::Texture texture;
-	
+	sf::Texture texture ;
+
 	if (!texture.loadFromFile(path))
 	{
 		texture.create(10, 10);
@@ -20,8 +20,8 @@ sf::Sprite newSprite(std::string path)
 	}
 	texture.setSmooth(true);
 
-	sf::Sprite sprite;
-	sprite.setTexture(texture);
-	
+	sf::Sprite *sprite = new sf::Sprite();
+	sprite->setTexture(texture);
+
 	return sprite;
 }
