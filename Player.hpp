@@ -1,5 +1,5 @@
-#ifdef CLASS_PLAYER_DEFINED
-#define CLASS_PLAYER_DEFINED
+#ifdef CLASS_PLAYER_HPP
+#define CLASS_PLAYER_HPP
 
 #include "Unit.hpp"
 
