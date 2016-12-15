@@ -19,6 +19,13 @@ Object::Object(sf::Texture texture,Point origine,Rectangle box):Point(origine.ge
 	this->texture = texture;
 }
 
+Object::Object(sf::Texture texture, const Point &origine, const Rectangle &box, const bool &_solid, const bool &_visible):
+    Point(origine), hitbox(box), solid(_solid), visible(_visible)
+{
+	this->texture = texture;
+}
+
+
 void Object::inCollide()
 {
 
