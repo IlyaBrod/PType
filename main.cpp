@@ -16,38 +16,38 @@
 using namespace std ;
 
 int main(int argv, char** argc){
-	
+
 	/*
-	const Weapon wpn_def[6] = {	Weapon(SHOVEL_PIC, SHOVEL_DMG)	, Weapon(VODKA_PIC, VODKA_DMG), 
+	const Weapon wpn_def[6] = {	Weapon(SHOVEL_PIC, SHOVEL_DMG)	, Weapon(VODKA_PIC, VODKA_DMG),
 								Weapon(GUN_PIC, GUN_DMG)		, Weapon(LASER_PIC, LASER_DMG),
 								Weapon(MISSILE_PIC, MISSILE_DMG), Weapon(NUKE_PIC, NUKE_DMG)	};
-	
+
 	*/
-	
-	sf::Sprite poutine = newSprite("Launcher.jpg");
+
+	sf::Sprite* poutine = newSprite("Launcher.jpg");
 	 sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
-    
+
     while (window.isOpen())
     {
-     
+
         sf::Event event;
         while (window.pollEvent(event))
         {
-    
+
             if (event.type == sf::Event::Closed)
                 window.close();
         }
 
-    
+
         window.clear(sf::Color::Black);
 
 
 
-        window.draw(poutine);
+        window.draw(*poutine);
         window.display();
     }
-	
+
 	return 0 ;
 }
 
