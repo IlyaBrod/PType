@@ -5,7 +5,6 @@ Object::Object():Point()
 	hitbox = Rectangle();
 }
 
-
 Object::Object(sf::Texture texture):Point()
 {
 
@@ -24,7 +23,7 @@ void Object::inCollide()
 {
 
 }
-void Object::collide(Object obj)
+void Object::collide(const Object &obj)
 {
 	if(hitbox.intersect(obj.hitbox)==true)
 	{

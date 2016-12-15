@@ -15,6 +15,8 @@ class Object : public Point{
 
 		//collision activated or not
 		bool solid;
+		//object is visible
+		bool visible;
 
         void inCollide();
 
@@ -22,9 +24,15 @@ class Object : public Point{
 		Object();
 		Object(sf::Texture texture);
 		Object(sf::Texture texture, Point origine, Rectangle box);
+        //accessors
+        bool get_solid()const{return solid;}
+        bool get_visible()const{return visible;}
+        //setters
+        void set_solid(bool solid){this->solid = solid;}
+        void set_visible(bool visible){this->visible = visible;}
 
 
-		void collide(Object obj);
+		void collide(const Object &obj);
 
 		/**
 		 * Display the object on the screen
