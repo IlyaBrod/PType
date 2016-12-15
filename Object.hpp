@@ -1,5 +1,5 @@
 #ifndef CLASS_OBJECT_HPP
-#define ClASS_OBJECT_HPP
+#define CLASS_OBJECT_HPP
 
 #include <SFML/Graphics.hpp>
 #include "Point.hpp"

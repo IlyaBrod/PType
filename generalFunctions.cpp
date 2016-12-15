@@ -1,11 +1,9 @@
 #include "generalFunctions.hpp"
 
-template<class T, class U>
-bool min(const T &a, const U &b){
+bool min(const int &a, const int &b){
 	return (a<b)? a : b ;
 }
 
-template<class T, class U>
-bool max(const T &a, const U &b){
+bool max(const int &a, const int &b){
 	return (a<b)? b : a ;
 }
