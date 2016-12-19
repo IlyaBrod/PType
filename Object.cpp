@@ -3,26 +3,27 @@
 Object::Object():Point()
 {
 	hitbox = Rectangle();
+	mat = Material();
 }
 
-Object::Object(sf::Texture texture):Point()
+Object::Object(std:string texturePath):Point()
 {
 
 	hitbox = Rectangle();
-	this->texture = texture;
+	mat = Material(texturePath);
 
 }
 
-Object::Object(sf::Texture texture, Point origine,Rectangle box):Point(origine.getX(),origine.getY())
+Object::Object(std:string texturePath, Point origine,Rectangle box):Point(origine.getX(),origine.getY())
 {
 	hitbox = box;
-	this->texture = texture;
+	tmat = Material(texturePath);
 }
 
-Object::Object(sf::Texture texture, const Point &origine, const Rectangle &box, const bool &_solid, const bool &_visible):
+Object::Object(std:string texturePath, const Point &origine, const Rectangle &box, const bool &_solid, const bool &_visible):
     Point(origine), hitbox(box), solid(_solid), visible(_visible)
 {
-	this->texture = texture;
+	mat = Material(texturePath);
 }
 
 

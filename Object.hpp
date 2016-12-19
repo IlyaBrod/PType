@@ -7,8 +7,8 @@
 
 class Object : public Point{
 	protected :
-    //the sprite (change texture into sprite)
-		sf::Texture texture ;
+    //Material : sprite + texture
+		Material mat;
     //Object hitbox is defined by a Rectangle
 		Rectangle hitbox;
     //frame rate for texture animation
@@ -25,9 +25,9 @@ class Object : public Point{
 	public :
     //constructors
 		Object();
-		Object(sf::Texture texture);
-		Object(sf::Texture texture, Point origine, Rectangle box);
-		Object(sf::Texture texture, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible);
+		Object(std:string texturePath);
+		Object(std:string texturePath, Point origine, Rectangle box);
+		Object(std:string texturePath, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible);
     //accessors read
         bool get_solid()const{return solid;}
         bool get_visible()const{return visible;}

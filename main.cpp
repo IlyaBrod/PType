@@ -48,6 +48,7 @@ int main(int argv, char** argc){
         window.display();
     }
 
+	delete poutine;
 	return 0 ;
 }
 
