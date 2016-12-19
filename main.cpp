@@ -12,6 +12,7 @@
 #include "Weapon.hpp"
 #include "generalFunctions.hpp"
 #include <SFML/Window.hpp>
+#include "Player.hpp"
 
 using namespace std ;
 
@@ -24,8 +25,9 @@ int main(int argv, char** argc){
 
 	*/
 
-	sf::Sprite* poutine = newSprite("Launcher.jpg");
-	 sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+	Player poutine("Launcher.jpg",Point(10,10),Rectangle(),10);
+	
+	sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
 
     while (window.isOpen())
@@ -44,11 +46,11 @@ int main(int argv, char** argc){
 
 
 
-        window.draw(*poutine);
+        poutine.display(window);
         window.display();
     }
 
-	delete poutine;
+	
 	return 0 ;
 }
 

@@ -13,7 +13,7 @@ class Weapon : public Object
 		void inCollide(Object &obj);
 	public :
 		Weapon();
-		Weapon(sf::Texture texture, const int dmg);
+		Weapon(std::string texturePath, const int dmg);
 
 		int getDomage();
 };

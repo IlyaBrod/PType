@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Point.hpp"
 #include "Rectangle.hpp"
+#include "Material.hpp"
 
 class Object : public Point{
 	protected :
@@ -25,9 +26,9 @@ class Object : public Point{
 	public :
     //constructors
 		Object();
-		Object(std:string texturePath);
-		Object(std:string texturePath, Point origine, Rectangle box);
-		Object(std:string texturePath, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible);
+		Object(std::string texturePath);
+		Object(std::string texturePath, Point origine, Rectangle box);
+		Object(std::string texturePath, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible);
     //accessors read
         bool get_solid()const{return solid;}
         bool get_visible()const{return visible;}
@@ -35,14 +36,16 @@ class Object : public Point{
         void set_solid(bool solid){this->solid = solid;}
         void set_visible(bool visible){this->visible = visible;}
 
-    //check collision and get effects through inCollision function
+		/**
+		 * Check collision and get effects through inCollision function
+		 */
 		void collide(Object &obj);
 
 		/**
 		 * Display the object on the screen
 		 * at position given by origine Point
 		 */
-		void display();
+		void display(sf::RenderWindow& window);
 };
 
 #endif

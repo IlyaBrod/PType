@@ -6,7 +6,7 @@ Object::Object():Point()
 	mat = Material();
 }
 
-Object::Object(std:string texturePath):Point()
+Object::Object(std::string texturePath):Point()
 {
 
 	hitbox = Rectangle();
@@ -14,13 +14,13 @@ Object::Object(std:string texturePath):Point()
 
 }
 
-Object::Object(std:string texturePath, Point origine,Rectangle box):Point(origine.getX(),origine.getY())
+Object::Object(std::string texturePath, Point origine,Rectangle box):Point(origine.getX(),origine.getY())
 {
 	hitbox = box;
-	tmat = Material(texturePath);
+	mat = Material(texturePath);
 }
 
-Object::Object(std:string texturePath, const Point &origine, const Rectangle &box, const bool &_solid, const bool &_visible):
+Object::Object(std::string texturePath, const Point &origine, const Rectangle &box, const bool &_solid, const bool &_visible):
     Point(origine), hitbox(box), solid(_solid), visible(_visible)
 {
 	mat = Material(texturePath);
@@ -41,9 +41,9 @@ void Object::collide(Object &obj)
 
 }
 
-void Object::display()
+void Object::display(sf::RenderWindow& window)
 {
     if(visible){
-        //display the texture
+        mat.draw(window);
     }
 }

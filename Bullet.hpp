@@ -14,7 +14,7 @@ class Bullet : public Object{
 
     public :
         Bullet();
-        Bullet(sf::Texture texture, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible, const int &dmg, const bool team);
+        Bullet(std::string texturePath, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible, const int &dmg, const bool team);
 
 
 };

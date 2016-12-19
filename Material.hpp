@@ -9,11 +9,15 @@ class Material
 	private:
 		sf::Texture texture;
 		sf::Sprite sprite;
-	public;
+	public:
 		Material();
 		Material(std::string path,bool smooth=true);
 	
-		void draw(sf::RenderWindow window);
+		/**
+		 * Draw the material in a window
+		 * @param window
+		 */
+		void draw(sf::RenderWindow& window);
 	
 };
 

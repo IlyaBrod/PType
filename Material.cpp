@@ -27,7 +27,8 @@ Material::Material(std::string path,bool smooth)
 	
 }
 
-void Material::draw(sf::RenderWindow window)
+
+void Material::draw(sf::RenderWindow& window)
 {
 	window.draw(sprite);
 	
