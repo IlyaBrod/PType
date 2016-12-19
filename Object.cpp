@@ -4,6 +4,7 @@ Object::Object():Point()
 {
 	hitbox = Rectangle();
 	mat = Material();
+	solid = true;
 }
 
 Object::Object(std::string texturePath):Point()
@@ -11,6 +12,7 @@ Object::Object(std::string texturePath):Point()
 
 	hitbox = Rectangle();
 	mat = Material(texturePath);
+	solid = true;
 
 }
 
@@ -18,12 +20,14 @@ Object::Object(std::string texturePath, Point origine,Rectangle box):Point(origi
 {
 	hitbox = box;
 	mat = Material(texturePath);
+	solid = true;
 }
 
 Object::Object(std::string texturePath, const Point &origine, const Rectangle &box, const bool &_solid, const bool &_visible):
     Point(origine), hitbox(box), solid(_solid), visible(_visible)
 {
 	mat = Material(texturePath);
+	solid = true;
 }
 
 

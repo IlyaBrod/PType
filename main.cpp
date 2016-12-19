@@ -25,7 +25,7 @@ int main(int argv, char** argc){
 
 	*/
 
-	Player poutine("Launcher.jpg",Point(10,10),Rectangle(),10);
+	Player poutine("poutine.png",Point(10,10),Rectangle(),10);
 	
 	sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
@@ -42,7 +42,7 @@ int main(int argv, char** argc){
         }
 
 
-        window.clear(sf::Color::Black);
+        window.clear(sf::Color::Red);
 
 
 

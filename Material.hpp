@@ -3,11 +3,11 @@
 #define CLASS_MATERIAL_HPP
 
 #include <SFML/Graphics.hpp>
-
+//#include <iostream>
 class Material
 {
 	private:
-		sf::Texture texture;
+		sf::Texture* texture;
 		sf::Sprite sprite;
 	public:
 		Material();

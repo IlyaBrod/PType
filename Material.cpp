@@ -2,28 +2,31 @@
 
 Material::Material()
 {
-	texture.create(10, 10);
+	texture = new sf::Texture();
+	texture -> create(10, 10);
 	sf::Uint8* pixels = new sf::Uint8[10 * 10 * 4];
-	texture.update(pixels);
+	texture -> update(pixels);
 	sprite = sf::Sprite();
-	sprite.setTexture(texture);
+	sprite.setTexture(*texture);
 	
 	
 }
 
 Material::Material(std::string path,bool smooth)
 {
-	if(!texture.loadFromFile(path))
+	texture = new sf::Texture();
+	
+	if(!(texture->loadFromFile(path)))
 	{
-		texture.create(10, 10);
+		texture -> create(10, 10);
 		sf::Uint8* pixels = new sf::Uint8[10 * 10 * 4];
-		texture.update(pixels);
+		texture->update(pixels);
 	}
 	
-	if(smooth==true) texture.setSmooth(true);
+	if(smooth==true) texture->setSmooth(true);
 	
 	sprite = sf::Sprite();
-	sprite.setTexture(texture);
+	sprite.setTexture(*texture);
 	
 }
 
