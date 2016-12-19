@@ -13,6 +13,7 @@
 #include "generalFunctions.hpp"
 #include <SFML/Window.hpp>
 #include "Player.hpp"
+#include "Material.hpp"
 
 using namespace std ;
 
@@ -25,7 +26,7 @@ int main(int argv, char** argc){
 
 	*/
 
-	Player poutine("poutine.png",Point(10,10),Rectangle(),10);
+	Player poutine("poutine.png",Point(0,0),Rectangle(),5);
 	
 	sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
@@ -46,7 +47,7 @@ int main(int argv, char** argc){
 
 
 
-        poutine.display(window);
+        poutine.draw(window);
         window.display();
     }
 

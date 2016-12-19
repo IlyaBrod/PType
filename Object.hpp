@@ -6,10 +6,9 @@
 #include "Rectangle.hpp"
 #include "Material.hpp"
 
-class Object : public Point{
+class Object : public Point, public Material{
 	protected :
-    //Material : sprite + texture
-		Material mat;
+	
     //Object hitbox is defined by a Rectangle
 		Rectangle hitbox;
     //frame rate for texture animation
@@ -41,11 +40,6 @@ class Object : public Point{
 		 */
 		void collide(Object &obj);
 
-		/**
-		 * Display the object on the screen
-		 * at position given by origine Point
-		 */
-		void display(sf::RenderWindow& window);
 };
 
 #endif

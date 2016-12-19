@@ -1,34 +1,23 @@
 #include "Object.hpp"
 
-Object::Object():Point()
+Object::Object():Point(),Material()
 {
 	hitbox = Rectangle();
-	mat = Material();
-	solid = true;
 }
 
-Object::Object(std::string texturePath):Point()
+Object::Object(std::string texturePath):Point(),Material(texturePath)
 {
-
 	hitbox = Rectangle();
-	mat = Material(texturePath);
-	solid = true;
 
 }
 
-Object::Object(std::string texturePath, Point origine,Rectangle box):Point(origine.getX(),origine.getY())
+Object::Object(std::string texturePath, Point origine,Rectangle box):Point(origine.getX(),origine.getY()),Material(texturePath)
 {
 	hitbox = box;
-	mat = Material(texturePath);
-	solid = true;
 }
 
 Object::Object(std::string texturePath, const Point &origine, const Rectangle &box, const bool &_solid, const bool &_visible):
-    Point(origine), hitbox(box), solid(_solid), visible(_visible)
-{
-	mat = Material(texturePath);
-	solid = true;
-}
+    Point(origine), hitbox(box), solid(_solid), visible(_visible),Material(texturePath) {}
 
 
 void Object::inCollide(Object &obj)
@@ -45,9 +34,3 @@ void Object::collide(Object &obj)
 
 }
 
-void Object::display(sf::RenderWindow& window)
-{
-    if(visible){
-        mat.draw(window);
-    }
-}
