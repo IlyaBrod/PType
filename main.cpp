@@ -27,6 +27,9 @@ int main(int argv, char** argc){
 	*/
 
 	Player poutine("poutine.png",Point(0,0),Rectangle(),5);
+	poutine.scale(0.2,0.2);
+	poutine.move(100,100);
+	
 	
 	sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
