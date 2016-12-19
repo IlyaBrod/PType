@@ -8,6 +8,5 @@ bool min(const int &a, const int &b);
 
 bool max(const int &a, const int &b);
 
-sf::Sprite* newSprite(std::string path);
 
 #endif
