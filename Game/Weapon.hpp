@@ -2,7 +2,7 @@
 #define CLASS_WEAPON_HPP
 
 #include "Object.hpp"
-#include "WEAPON_CONFIG.hpp"
+#include "../Config/WEAPON_CONFIG.hpp"
 
 enum Weapon_Type{Shovel, Vodka, Gun, Laser, Missile, Nuke};
 

@@ -2,9 +2,9 @@
 #define CLASS_OBJECT_HPP
 
 #include <SFML/Graphics.hpp>
-#include "Point.hpp"
-#include "Rectangle.hpp"
-#include "Material.hpp"
+#include "../Basic/Point.hpp"
+#include "../Basic/Rectangle.hpp"
+#include "../Basic/Material.hpp"
 
 class Object : public Point, public Material{
 	protected :

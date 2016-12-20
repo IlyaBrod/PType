@@ -4,56 +4,74 @@ CC = g++
 EXEC = PType
 all : $(EXEC)
 
-PType : Rectangle.o Bullet.o Weapon.o generalFunctions.o main.o Object.o Item.o Material.o Point.o Player.o Decor.o Unit.o Enemy.o Explosion.o 
-	g++ Rectangle.o Bullet.o Weapon.o generalFunctions.o main.o Object.o Item.o Material.o Point.o Player.o Decor.o Unit.o Enemy.o Explosion.o -o Ptype-app -lsfml-graphics -lsfml-window -lsfml-system 
+PType : Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/Menu.o Interface/Interface.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o 
+	g++ Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/Menu.o Interface/Interface.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o -o Ptype-app -lsfml-graphics -lsfml-window -lsfml-system 
 
-main.o: main.cpp Rectangle.hpp Bullet.hpp Weapon.hpp generalFunctions.hpp Object.hpp Item.hpp Material.hpp Point.hpp Player.hpp Decor.hpp Unit.hpp Enemy.hpp Explosion.hpp
+main.o: main.cpp Basic/Rectangle.hpp Basic/generalFunctions.hpp Basic/Material.hpp Basic/Point.hpp Interface/Menu.hpp Interface/Interface.hpp Game/Bullet.hpp Game/Weapon.hpp Game/Object.hpp Game/Item.hpp Game/Player.hpp Game/Decor.hpp Game/Unit.hpp Game/Enemy.hpp Game/Explosion.hpp
 	g++ -c main.cpp -o main.o
 
-Rectangle.o: Rectangle.cpp Rectangle.hpp
-	g++ -c Rectangle.cpp -o Rectangle.o
+Basic/Rectangle.o: Basic/Rectangle.cpp Basic/Rectangle.hpp
+	g++ -c Basic/Rectangle.cpp -o Basic/Rectangle.o
 
-Bullet.o: Bullet.cpp Bullet.hpp
-	g++ -c Bullet.cpp -o Bullet.o
+Basic/generalFunctions.o: Basic/generalFunctions.cpp Basic/generalFunctions.hpp
+	g++ -c Basic/generalFunctions.cpp -o Basic/generalFunctions.o
 
-Weapon.o: Weapon.cpp Weapon.hpp
-	g++ -c Weapon.cpp -o Weapon.o
+Basic/Material.o: Basic/Material.cpp Basic/Material.hpp
+	g++ -c Basic/Material.cpp -o Basic/Material.o
 
-generalFunctions.o: generalFunctions.cpp generalFunctions.hpp
-	g++ -c generalFunctions.cpp -o generalFunctions.o
+Basic/Point.o: Basic/Point.cpp Basic/Point.hpp
+	g++ -c Basic/Point.cpp -o Basic/Point.o
 
-Object.o: Object.cpp Object.hpp
-	g++ -c Object.cpp -o Object.o
+Interface/Menu.o: Interface/Menu.cpp Interface/Menu.hpp
+	g++ -c Interface/Menu.cpp -o Interface/Menu.o
 
-Item.o: Item.cpp Item.hpp
-	g++ -c Item.cpp -o Item.o
+Interface/Interface.o: Interface/Interface.cpp Interface/Interface.hpp
+	g++ -c Interface/Interface.cpp -o Interface/Interface.o
 
-Material.o: Material.cpp Material.hpp
-	g++ -c Material.cpp -o Material.o
+Game/Bullet.o: Game/Bullet.cpp Game/Bullet.hpp
+	g++ -c Game/Bullet.cpp -o Game/Bullet.o
 
-Point.o: Point.cpp Point.hpp
-	g++ -c Point.cpp -o Point.o
+Game/Weapon.o: Game/Weapon.cpp Game/Weapon.hpp
+	g++ -c Game/Weapon.cpp -o Game/Weapon.o
 
-Player.o: Player.cpp Player.hpp
-	g++ -c Player.cpp -o Player.o
+Game/Object.o: Game/Object.cpp Game/Object.hpp
+	g++ -c Game/Object.cpp -o Game/Object.o
 
-Decor.o: Decor.cpp Decor.hpp
-	g++ -c Decor.cpp -o Decor.o
+Game/Item.o: Game/Item.cpp Game/Item.hpp
+	g++ -c Game/Item.cpp -o Game/Item.o
 
-Unit.o: Unit.cpp Unit.hpp
-	g++ -c Unit.cpp -o Unit.o
+Game/Player.o: Game/Player.cpp Game/Player.hpp
+	g++ -c Game/Player.cpp -o Game/Player.o
 
-Enemy.o: Enemy.cpp Enemy.hpp
-	g++ -c Enemy.cpp -o Enemy.o
+Game/Decor.o: Game/Decor.cpp Game/Decor.hpp
+	g++ -c Game/Decor.cpp -o Game/Decor.o
 
-Explosion.o: Explosion.cpp Explosion.hpp
-	g++ -c Explosion.cpp -o Explosion.o
+Game/Unit.o: Game/Unit.cpp Game/Unit.hpp
+	g++ -c Game/Unit.cpp -o Game/Unit.o
+
+Game/Enemy.o: Game/Enemy.cpp Game/Enemy.hpp
+	g++ -c Game/Enemy.cpp -o Game/Enemy.o
+
+Game/Explosion.o: Game/Explosion.cpp Game/Explosion.hpp
+	g++ -c Game/Explosion.cpp -o Game/Explosion.o
 
 
 
 clean : 
-	rm -rf *.o
-	
+	 rm ./Basic/*.o 
+	 rm ./Interface/*.o 
+	 rm ./Game/*.o 
+	 rm ./Config/*.o 
+	 rm ./Images/*.o 
+	 rm *.o 
+
+
 cleanAll :
-	rm -rf *.o
+	 rm ./Basic/*.o 
+	 rm ./Interface/*.o 
+	 rm ./Game/*.o 
+	 rm ./Config/*.o 
+	 rm ./Images/*.o 
+	 rm *.o 
+
 	rm -rf $(Ptype-app)
