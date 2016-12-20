@@ -14,11 +14,15 @@
 #include <SFML/Window.hpp>
 #include "Player.hpp"
 #include "Material.hpp"
-
+#include <iostream>
 using namespace std ;
+
+typedef enum {inMenu,inOption,inGame,inPause,inScore,inExit} gSTATE;
 
 int main(int argv, char** argc){
 
+
+	//##################       INIT    	################################
 	/*
 	const Weapon wpn_def[6] = {	Weapon(SHOVEL_PIC, SHOVEL_DMG)	, Weapon(VODKA_PIC, VODKA_DMG),
 								Weapon(GUN_PIC, GUN_DMG)		, Weapon(LASER_PIC, LASER_DMG),
@@ -31,26 +35,47 @@ int main(int argv, char** argc){
 	poutine.move(100,100);
 	
 	
-	sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+	//Global game
+	gSTATE gameStatus = inMenu;
+	
+	sf::RenderWindow window(sf::VideoMode(800, 600), "P-Type");
 
-
-    while (window.isOpen())
+	//##################	MAIN LOOP	################################
+    while (gameStatus!=inExit) //window.isOpen()
     {
 
+		//EVENTS
         sf::Event event;
         while (window.pollEvent(event))
         {
 
             if (event.type == sf::Event::Closed)
+            {
                 window.close();
+                gameStatus=inExit;
+            }
         }
 
 
-        window.clear(sf::Color::Red);
-
-
-
-        poutine.draw(window);
+		//DISPLAY
+		window.clear(sf::Color::Black);
+		
+		switch(gameStatus)
+		{
+			case(inMenu):
+				break;
+			case(inOption):
+				break;
+			case(inScore):
+				break;
+			case(inGame):
+				poutine.draw(window);
+			case(inPause):
+				break;
+			default:
+				break;
+		}
+		
         window.display();
     }
 
