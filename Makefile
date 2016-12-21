@@ -58,20 +58,20 @@ Game/Explosion.o: Game/Explosion.cpp Game/Explosion.hpp
 
 
 clean : 
+	 rm *.o 
 	 rm ./Basic/*.o 
 	 rm ./Interface/*.o 
 	 rm ./Game/*.o 
 	 rm ./Config/*.o 
 	 rm ./Images/*.o 
-	 rm *.o 
 
 
 cleanAll :
+	 rm *.o 
 	 rm ./Basic/*.o 
 	 rm ./Interface/*.o 
 	 rm ./Game/*.o 
 	 rm ./Config/*.o 
 	 rm ./Images/*.o 
-	 rm *.o 
 
 	rm -rf $(Ptype-app)

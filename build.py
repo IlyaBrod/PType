@@ -129,11 +129,11 @@ for name in list_o:
 #build remove
 REMOVE = ""
 
+list_subdir.remove("./")
+REMOVE += "\t rm *.o \n"
 for subdir in list_subdir:
-	if(subdir!="./"):
-		REMOVE+= "\t rm ./" + subdir + "/*.o \n"
-	else:
-		REMOVE += "\t rm *.o \n"
+	REMOVE+= "\t rm ./" + subdir + "/*.o \n"
+	
 
 
 CONTENT_POST = """

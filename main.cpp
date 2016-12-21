@@ -1,10 +1,15 @@
 
-#include "Game/Weapon.hpp"
-#include "Basic/generalFunctions.hpp"
 #include <SFML/Window.hpp>
-#include "Game/Player.hpp"
-#include "Basic/Material.hpp"
 #include <iostream>
+
+
+#include "Game/Player.hpp"
+#include "Game/Weapon.hpp"
+
+#include "Basic/generalFunctions.hpp"
+#include "Basic/Material.hpp"
+
+#include "Interface/Menu.hpp"
 
 #include "Config/INTERFACE_CONFIG.hpp"
 #include "Config/PLAYER_CONFIG.hpp"
@@ -31,7 +36,21 @@ int main(int argv, char** argc){
 	
 	
 	//Global game
-	gSTATE gameStatus = inGame;
+	gSTATE gameStatus = inMenu;
+	
+	Material menuBackground(MENU_BG_PIC);
+	Material menuTopBorder(MENU_TOP_BORDER_PIC);
+	Material menuBotBorder(MENU_BOT_BORDER_PIC);
+	Material menuLeftBorder(MENU_LEFT_BORDER_PIC);
+	Material menuRightBorder(MENU_RIGHT_BORDER_PIC);
+	
+	Menu mainMenu(10,10,500,500);
+	mainMenu.setBackground(menuBackground);
+	mainMenu.setBotBorder(menuBotBorder);
+	mainMenu.setTopBorder(menuTopBorder);
+	mainMenu.setLeftBorder(menuLeftBorder);
+	mainMenu.setRightBorder(menuRightBorder);
+	
 	
 	sf::RenderWindow window(sf::VideoMode(800, 600), "P-Type");
 
@@ -58,6 +77,7 @@ int main(int argv, char** argc){
 		switch(gameStatus)
 		{
 			case(inMenu):
+				mainMenu.draw(window);
 				break;
 			case(inOption):
 				break;
