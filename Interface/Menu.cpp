@@ -27,7 +27,7 @@ void Menu::setBackground(Material obj)
 void Menu::setLeftBorder(Material border)
 {
 	leftBorder = border;
-	sf::FloatRect boundary = leftBorder.getLocalBounds();
+	sf::FloatRect boundary = leftBorder.getGlobalBounds();
 	leftBorder.setPosition(origine.getX(),origine.getY()+boundary.height/2);
 }
 
@@ -35,7 +35,7 @@ void Menu::setLeftBorder(Material border)
 void Menu::setRightBorder(Material border)
 {
 	rightBorder = border;
-	sf::FloatRect boundary = rightBorder.getLocalBounds();
+	sf::FloatRect boundary = rightBorder.getGlobalBounds();
 	rightBorder.setPosition(origine.getX()+width-boundary.width,origine.getY()+boundary.height/2);
 	
 }
@@ -43,15 +43,15 @@ void Menu::setRightBorder(Material border)
 void Menu::setTopBorder(Material border)
 {
 	topBorder = border;
-	sf::FloatRect boundary = topBorder.getLocalBounds();
+	sf::FloatRect boundary = topBorder.getGlobalBounds();
 	topBorder.setPosition(origine.getX()+boundary.width/2,origine.getY());
 }
 
 void Menu::setBotBorder(Material border)
 {
 	botBorder = border;
-	sf::FloatRect boundary = botBorder.getLocalBounds();
-	topBorder.setPosition(origine.getX()+boundary.width/2,height);
+	sf::FloatRect boundary = botBorder.getGlobalBounds();
+	botBorder.setPosition(origine.getX()+boundary.width/2,origine.getY()+height-boundary.height);
 }
 
 void Menu::addObj(Material obj,LOCATION loc)

@@ -40,11 +40,15 @@ int main(int argv, char** argc){
 	
 	Material menuBackground(MENU_BG_PIC);
 	Material menuTopBorder(MENU_TOP_BORDER_PIC);
+	menuTopBorder.setScale(0.08,0.08);
 	Material menuBotBorder(MENU_BOT_BORDER_PIC);
+	menuBotBorder.setScale(0.08,0.08);
 	Material menuLeftBorder(MENU_LEFT_BORDER_PIC);
+	menuLeftBorder.setScale(0.08,0.08);
 	Material menuRightBorder(MENU_RIGHT_BORDER_PIC);
+	menuRightBorder.setScale(0.08,0.08);
 	
-	Menu mainMenu(10,10,500,500);
+	Menu mainMenu(100,100,500,200);
 	mainMenu.setBackground(menuBackground);
 	mainMenu.setBotBorder(menuBotBorder);
 	mainMenu.setTopBorder(menuTopBorder);
