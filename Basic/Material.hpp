@@ -28,6 +28,11 @@ class Material : public sf::Sprite
 		 */
 		 void printTextureSize();
 		 
+		 /**
+		  * Renvoie les dimensions de la texture
+		  */
+		 int getTextureWidth();
+		 int getTextureHeight();
 	
 };
 

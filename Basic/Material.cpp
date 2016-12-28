@@ -42,3 +42,14 @@ void Material::printTextureSize()
 	std::cout << "Size : " <<siz.x<<"x"<<siz.y<<std::endl;
 }
 
+int Material::getTextureWidth()
+{
+	sf::Vector2u siz = texture->getSize();
+	return siz.x;
+}
+
+int Material::getTextureHeight()
+{	
+	sf::Vector2u siz = texture->getSize();
+	return siz.y;
+}
