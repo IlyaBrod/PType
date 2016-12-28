@@ -36,4 +36,9 @@ void Material::draw(sf::RenderWindow& window)
 	
 }
 
+void Material::printTextureSize()
+{
+	sf::Vector2u siz = texture->getSize();
+	std::cout << "Size : " <<siz.x<<"x"<<siz.y<<std::endl;
+}
 

@@ -3,7 +3,7 @@
 #define CLASS_MATERIAL_HPP
 
 #include <SFML/Graphics.hpp>
-//#include <iostream>
+#include <iostream>
 
 class Material : public sf::Sprite
 {
@@ -22,6 +22,12 @@ class Material : public sf::Sprite
 		 * @param window
 		 */
 		void draw(sf::RenderWindow& window);
+		
+		/**
+		 * Affiche les dimensions de la texture
+		 */
+		 void printTextureSize();
+		 
 	
 };
 
