@@ -53,3 +53,8 @@ int Material::getTextureHeight()
 	sf::Vector2u siz = texture->getSize();
 	return siz.y;
 }
+
+void Material::adaptSize(int screen[2])
+{
+	this->setScale((float)screen[0]/getTextureWidth(),(float)screen[1]/getTextureHeight());	
+}

@@ -24,15 +24,23 @@ class Material : public sf::Sprite
 		void draw(sf::RenderWindow& window);
 		
 		/**
-		 * Affiche les dimensions de la texture
+		 * Print texture size Heigh x Width
 		 */
-		 void printTextureSize();
+		void printTextureSize();
 		 
 		 /**
-		  * Renvoie les dimensions de la texture
+		  * Give the texture dimensions
 		  */
-		 int getTextureWidth();
-		 int getTextureHeight();
+		int getTextureWidth();
+		int getTextureHeight();
+		 
+		 /**
+		  * Adapt textures to the screen
+		  * @param screen[2] Table of screen [Width,Height]
+		  */
+		void adaptSize(int screen[2]);
+		 
+		 
 	
 };
 
