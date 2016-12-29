@@ -76,10 +76,16 @@ class Menu : public Rectangle
 		void addObj(Material obj,LOCATION loc);
 		
 		/**
-		 * Affichage du menu et de ses objets
-		 * @param window Fenêtre d'affichage
+		 * Display menu with all objects
+		 * @param window
 		 */
 		void draw(sf::RenderWindow& window);
+		
+		
+		/**
+		 * Set visibility to 1
+		 */
+		void setVisible();
 		
 		/**
 		 * Fermeture du menu

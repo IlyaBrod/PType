@@ -11,6 +11,8 @@ Menu::Menu(const int &width,const int &height)
 	scaleFactors = new float[2];
 	scaleFactors[0] = 1.0;
 	scaleFactors[1] = 1.0;
+	
+	setVisible();
 }
 Menu::Menu(const int &xo,const int &yo,const int &width,const int &height)
 {
@@ -21,6 +23,8 @@ Menu::Menu(const int &xo,const int &yo,const int &width,const int &height)
 	scaleFactors = new float[2];
 	scaleFactors[0] = 1.0;
 	scaleFactors[1] = 1.0;
+	
+	setVisible();
 	
 }
 
@@ -94,6 +98,11 @@ void Menu::draw(sf::RenderWindow& window)
 			}
 		}
 	}
+}
+
+void Menu::setVisible()
+{
+	visible=true;
 }
 
 void Menu::exit() 
