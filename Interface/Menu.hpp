@@ -27,6 +27,7 @@ class Menu : public Rectangle
 		Material rightBorder;
 		Material topBorder;
 		Material botBorder;
+		float* scaleFactors; //factors to resize pictures
 		
 		std::vector<Material> objList;
 		std::vector<LOCATION> objLoc;

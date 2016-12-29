@@ -38,17 +38,17 @@ int main(int argv, char** argc){
 	//Global game
 	gSTATE gameStatus = inMenu;
 	
+	int SCREEN[2] = {1366,768};
+	
+	
 	Material menuBackground(MENU_BG_PIC);
 	Material menuTopBorder(MENU_TOP_BORDER_PIC);
-	menuTopBorder.setScale(0.08,0.08);
+	//menuTopBorder.setScale(0.71,0.71);
 	Material menuBotBorder(MENU_BOT_BORDER_PIC);
-	menuBotBorder.setScale(0.08,0.08);
 	Material menuLeftBorder(MENU_LEFT_BORDER_PIC);
-	menuLeftBorder.setScale(0.08,0.08);
 	Material menuRightBorder(MENU_RIGHT_BORDER_PIC);
-	menuRightBorder.setScale(0.08,0.08);
 	
-	Menu mainMenu(100,100,500,200);
+	Menu mainMenu(0,0,SCREEN[0],SCREEN[1]);
 	mainMenu.setBackground(menuBackground);
 	mainMenu.setBotBorder(menuBotBorder);
 	mainMenu.setTopBorder(menuTopBorder);
@@ -56,7 +56,15 @@ int main(int argv, char** argc){
 	mainMenu.setRightBorder(menuRightBorder);
 	
 	
-	sf::RenderWindow window(sf::VideoMode(800, 600), "P-Type");
+	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type");//,sf::Style::Fullscreen
+
+	/**
+	 * TEST ZONE
+	 */
+	 cout<<"Background : "<<endl;
+	 menuBackground.printTextureSize();
+	 cout<<"Border Top : "<<endl;
+	 menuTopBorder.printTextureSize();
 
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
