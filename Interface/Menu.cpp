@@ -37,18 +37,18 @@ void Menu::setBackground(Material obj)
 void Menu::setLeftBorder(Material border)
 {
 	leftBorder = border;
+	leftBorder.setScale(scaleFactors[0],scaleFactors[1]);
 	sf::FloatRect boundary = leftBorder.getGlobalBounds();
 	leftBorder.setPosition(origine.getX()-boundary.width/6,origine.getY());
-	//leftBorder.setTextureRect(sf::IntRect(origine.getX(),origine.getY(),boundary.width,background.getTextureHeight()));
 }
 
 
 void Menu::setRightBorder(Material border)
 {
 	rightBorder = border;
+	rightBorder.setScale(scaleFactors[0],scaleFactors[1]);
 	sf::FloatRect boundary = rightBorder.getGlobalBounds();
-	rightBorder.setPosition(origine.getX()+background.getTextureWidth()-boundary.width/6,origine.getY());
-	//rightBorder.setTextureRect(sf::IntRect(origine.getX(),origine.getY(),boundary.width,background.getTextureHeight()));
+	rightBorder.setPosition(origine.getX()+width-5*boundary.width/6,origine.getY());
 }
 
 void Menu::setTopBorder(Material border)
@@ -57,15 +57,16 @@ void Menu::setTopBorder(Material border)
 	topBorder.setScale(scaleFactors[0],scaleFactors[1]);
 	sf::FloatRect boundary = topBorder.getGlobalBounds();
 	topBorder.setPosition(origine.getX(),origine.getY()-boundary.height/6);
-	//topBorder.setTextureRect(sf::IntRect(origine.getX(),origine.getY(),background.getTextureWidth(),boundary.height));
+	
 }
 
 void Menu::setBotBorder(Material border)
 {
 	botBorder = border;
+	botBorder.setScale(scaleFactors[0],scaleFactors[1]);
 	sf::FloatRect boundary = botBorder.getGlobalBounds();
-	botBorder.setPosition(origine.getX(),origine.getY()+background.getTextureHeight()-boundary.height/6);
-	//botBorder.setTextureRect(sf::IntRect(origine.getX(),origine.getY(),background.getTextureWidth(),boundary.height));
+	botBorder.setPosition(origine.getX(),origine.getY()+height-5*boundary.height/6);
+	
 }
 
 void Menu::addObj(Material obj,LOCATION loc)
