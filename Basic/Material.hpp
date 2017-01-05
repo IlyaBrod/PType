@@ -50,7 +50,10 @@ class Material : public sf::Sprite
 		 */
 		float* getSizeFactor();
 		
-		
+		/**
+		 * Sprite setScale method
+		 */
+		void setScale(float factorX,float factorY);
 	
 };
 

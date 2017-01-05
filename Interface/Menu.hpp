@@ -6,6 +6,7 @@
 #include "../Basic/Rectangle.hpp"
 #include "../Basic/Point.hpp"
 #include "../Basic/Material.hpp"
+#include "Button.hpp"
 #include <vector>
 
 typedef enum {TOP,BOT,LEFT,RIGHT,CENTER} LOCATION;
@@ -27,6 +28,7 @@ class Menu : public Rectangle
 		Material rightBorder;
 		Material topBorder;
 		Material botBorder;
+		Button exitButton;
 		float* scaleFactors; //factors to resize pictures
 		
 		std::vector<Material> objList;
@@ -69,6 +71,11 @@ class Menu : public Rectangle
 		void setBotBorder(Material border);
 		
 		/**
+		 * Set the exit button of the menu
+		 */
+		void setExitButton(Button knopka);
+		 
+		/**
 		 * Add an object to display
 		 * @param obj Material
 		 * @param loc Location of the object in the window
@@ -87,6 +94,11 @@ class Menu : public Rectangle
 		 */
 		void setVisible();
 		
+		/**
+		 * Give the visibility of the object
+		 */
+		bool isVisible();
+
 		/**
 		 * Fermeture du menu
 		 */

@@ -73,6 +73,14 @@ void Menu::setBotBorder(Material border)
 	
 }
 
+void Menu::setExitButton(Button knopka)
+{
+	exitButton=knopka;
+	exitButton.setScale(scaleFactors[0],scaleFactors[1]);
+	sf::FloatRect boundary = background.getGlobalBounds();
+	exitButton.setPosition(boundary.width-exitButton.width,background.getPosition().y);
+}
+
 void Menu::addObj(Material obj,LOCATION loc)
 {
 	objList.push_back(obj);
@@ -82,6 +90,10 @@ void Menu::addObj(Material obj,LOCATION loc)
 		
 void Menu::draw(sf::RenderWindow& window)
 {
+	if(exitButton.pressed==true)
+	{
+		exit();
+	}
 	if(visible==true)
 	{
 		background.draw(window);
@@ -89,6 +101,8 @@ void Menu::draw(sf::RenderWindow& window)
 		rightBorder.draw(window);
 		topBorder.draw(window);
 		botBorder.draw(window);
+		exitButton.draw(window);
+		exitButton.refresh();
 		
 		if(objList.size()!=0)
 		{
@@ -108,4 +122,9 @@ void Menu::setVisible()
 void Menu::exit() 
 {
 	visible=false;
+}
+
+bool Menu::isVisible()
+{
+	return visible;
 }

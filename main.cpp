@@ -70,14 +70,14 @@ int main(int argv, char** argc){
 	
 	//mainMenu.setVisible();
 	
-	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type");//,sf::Style::Fullscreen
+	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type",sf::Style::Fullscreen);//,sf::Style::Fullscreen
 
 	/**
 	 * TEST ZONE
 	 */
-	 Button mainMenuExit(10,10,80,80,BUTTON_EXIT);
-	 
-	 
+	 Button mainMenuExit(10,10,BUTTON_EXIT);
+	 //mainMenuExit.setScale(0.5,0.5);
+	 mainMenu.setExitButton(mainMenuExit);
 
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
@@ -95,7 +95,7 @@ int main(int argv, char** argc){
             }
         }
         
-        if(mainMenuExit.pressed==true)
+        if(mainMenu.isVisible()==false)
         {
 			gameStatus=inExit;
 		}
@@ -107,8 +107,6 @@ int main(int argv, char** argc){
 		{
 			case(inMenu):
 				mainMenu.draw(window);
-				mainMenuExit.draw(window);
-				mainMenuExit.refresh();
 				
 				break;
 				
