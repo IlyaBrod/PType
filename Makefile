@@ -4,10 +4,10 @@ CC = g++
 EXEC = PType
 all : $(EXEC)
 
-PType : Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/Menu.o Interface/Interface.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o 
-	g++ Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/Menu.o Interface/Interface.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o -o Ptype-app -lsfml-graphics -lsfml-window -lsfml-system 
+PType : Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/Menu.o Interface/Interface.o Interface/Button.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o 
+	g++ Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/Menu.o Interface/Interface.o Interface/Button.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o -o Ptype-app -lsfml-graphics -lsfml-window -lsfml-system 
 
-main.o: main.cpp Basic/Rectangle.hpp Basic/generalFunctions.hpp Basic/Material.hpp Basic/Point.hpp Interface/Menu.hpp Interface/Interface.hpp Game/Bullet.hpp Game/Weapon.hpp Game/Object.hpp Game/Item.hpp Game/Player.hpp Game/Decor.hpp Game/Unit.hpp Game/Enemy.hpp Game/Explosion.hpp
+main.o: main.cpp Basic/Rectangle.hpp Basic/generalFunctions.hpp Basic/Material.hpp Basic/Point.hpp Interface/Menu.hpp Interface/Interface.hpp Interface/Button.hpp Game/Bullet.hpp Game/Weapon.hpp Game/Object.hpp Game/Item.hpp Game/Player.hpp Game/Decor.hpp Game/Unit.hpp Game/Enemy.hpp Game/Explosion.hpp
 	g++ -c main.cpp -o main.o
 
 Basic/Rectangle.o: Basic/Rectangle.cpp Basic/Rectangle.hpp
@@ -27,6 +27,9 @@ Interface/Menu.o: Interface/Menu.cpp Interface/Menu.hpp
 
 Interface/Interface.o: Interface/Interface.cpp Interface/Interface.hpp
 	g++ -c Interface/Interface.cpp -o Interface/Interface.o
+
+Interface/Button.o: Interface/Button.cpp Interface/Button.hpp
+	g++ -c Interface/Button.cpp -o Interface/Button.o
 
 Game/Bullet.o: Game/Bullet.cpp Game/Bullet.hpp
 	g++ -c Game/Bullet.cpp -o Game/Bullet.o
@@ -58,20 +61,20 @@ Game/Explosion.o: Game/Explosion.cpp Game/Explosion.hpp
 
 
 clean : 
+	 rm *.o 
 	 rm ./Basic/*.o 
 	 rm ./Interface/*.o 
 	 rm ./Game/*.o 
 	 rm ./Config/*.o 
 	 rm ./Images/*.o 
-	 rm *.o 
 
 
 cleanAll :
+	 rm *.o 
 	 rm ./Basic/*.o 
 	 rm ./Interface/*.o 
 	 rm ./Game/*.o 
 	 rm ./Config/*.o 
 	 rm ./Images/*.o 
-	 rm *.o 
 
 	rm -rf $(Ptype-app)
