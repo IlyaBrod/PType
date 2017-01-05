@@ -5,7 +5,10 @@
 
 class Explosion : public Object{
     protected :
-        void inCollide(Object &obj);
+
+    public :
+        void inCollide(Object* obj);
+        int getDamage(){return 0 ;}
 };
 
 #endif

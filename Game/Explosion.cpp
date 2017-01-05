@@ -1,5 +1,5 @@
 #include "Explosion.hpp"
 
-void Explosion::inCollide(Object &obj){
+void Explosion::inCollide(Object* obj){
 
 }

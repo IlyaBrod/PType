@@ -6,10 +6,12 @@
 class Player : public Unit{
 
     protected :
-        void inCollide(Object &obj);
-        
+
     public:
 		Player(std::string texturePath, Point point, Rectangle box, int life);
+
+        void inCollide(Object* obj);
+		int getDamage(){return collideDmg ;}
 };
 
 #endif

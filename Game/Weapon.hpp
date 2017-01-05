@@ -10,12 +10,12 @@ class Weapon : public Object
 {
 	protected :
 		int damage ;
-		void inCollide(Object &obj);
 	public :
 		Weapon();
 		Weapon(std::string texturePath, const int dmg);
 
-		int getDomage();
+		void inCollide(Object* obj);
+		int getDamage(){return damage ;}
 };
 
 #endif
