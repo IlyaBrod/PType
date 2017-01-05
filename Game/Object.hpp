@@ -6,7 +6,7 @@
 #include "../Basic/Rectangle.hpp"
 #include "../Basic/Material.hpp"
 
-enum Team{PLAYER, ENEMY, NEUTRAL};
+enum Team{PLAYER, ENEMY, DECOR, ITEM};
 
 class Object : public Point, public Material{
 	protected :
