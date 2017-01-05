@@ -1,34 +1,24 @@
 #include "Button.hpp"
 
 
-Button::Button()
+Button::Button(std::string path) : Material(path)
 {
-	mouseRec = Rectangle();
 	pressed=false;
-	mouseRec.setH(5);
-	mouseRec.setW(5);
 }
 
-Button::Button(int x, int y, int width, int height)
+Button::Button(int x, int y, int width, int height,std::string path) : Material(path), sf::IntRect(x,y,width,height)
 {
-	setH(height);
-	setW(width);
-	setX(x);
-	setY(y);
-	mouseRec.setH(5);
-	mouseRec.setW(5);
 	pressed=false;
+	sf::Sprite::move(x,y);
 }
 
 void Button::refresh()
 {
-	sf::Vector2i vec = getPosition();
+	sf::Vector2i vec = sf::Mouse::getPosition();
 	
-	mouseRec.setX(vec.x);
-	mouseRec.setY(vec.y);
-	
-	if(intersect(mouseRec)==true)
+	if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-		event=true;
+		pressed=true;
+		std::cout << "PRESSED : " << pressed << std::endl;
 	}
 }

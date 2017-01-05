@@ -10,6 +10,7 @@
 #include "Basic/Material.hpp"
 
 #include "Interface/Menu.hpp"
+#include "Interface/Button.hpp"
 
 #include "Config/INTERFACE_CONFIG.hpp"
 #include "Config/PLAYER_CONFIG.hpp"
@@ -74,11 +75,9 @@ int main(int argv, char** argc){
 	/**
 	 * TEST ZONE
 	 */
-	 /*
-	 cout<<"Background : "<<endl;
-	 mainMenuBackground.printTextureSize();
-	 cout<<"Border Top : "<<endl;
-	 mainMenuTopBorder.printTextureSize();*/
+	 Button mainMenuExit(10,10,80,80,BUTTON_EXIT);
+	 
+	 
 
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
@@ -95,7 +94,11 @@ int main(int argv, char** argc){
                 gameStatus=inExit;
             }
         }
-
+        
+        if(mainMenuExit.pressed==true)
+        {
+			gameStatus=inExit;
+		}
 
 		//DISPLAY
 		window.clear(sf::Color::Black);
@@ -104,17 +107,26 @@ int main(int argv, char** argc){
 		{
 			case(inMenu):
 				mainMenu.draw(window);
-				scoreMenu.draw(window);
+				mainMenuExit.draw(window);
+				mainMenuExit.refresh();
 				
 				break;
+				
 			case(inOption):
 				break;
+				
 			case(inScore):
+				mainMenu.draw(window);
+				scoreMenu.draw(window);
 				break;
+				
 			case(inGame):
 				poutine.draw(window);
+				break;
+				
 			case(inPause):
 				break;
+				
 			default:
 				break;
 		}
