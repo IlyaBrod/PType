@@ -1,6 +1,6 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(sf::Texture texture, const int dmg): Object(texture), damage(dmg){}
+Weapon::Weapon(std::string texturePath, const int dmg): Object(texturePath), damage(dmg){}
 
 Weapon::Weapon(){}
 

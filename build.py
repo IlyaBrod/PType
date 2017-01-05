@@ -1,6 +1,7 @@
 import os,sys
 from subprocess import call
 
+
 CONTENT_PRE = """
 LD = g++
 CC = g++
@@ -24,28 +25,55 @@ for i in range(1,len(arg)):
 	else:
 		list_only.append(arg[i])
 
+
+#GET FILES
 list_dir = os.listdir("./")
+
+#get subdirs
+list_subdir = []
+for di in list_dir:
+	if os.path.isdir(di) and di[0]!='.':
+		list_subdir.append(di)
+		
+for di in list_subdir:
+	list_dir.remove(di)
+
+list_subdir.append("./")
+
 list_cpp=[]
 list_o = []
-for nom in list_dir:
-	if(".cpp" in nom):
-		list_cpp.append(nom)
+
+for di in list_subdir:
+	list_get_files = os.listdir(di)
+	
+	for nom in list_get_files:
+		if(".cpp" in nom):
+			if(di!="./"):
+				list_cpp.append(di+"/"+nom)
+			else:
+				list_cpp.append(nom)
+
 
 
 #ONLY SELECTION
 list_cpp_p=[]
 if(list_only!=[]):
 	for sh in list_cpp:
-		if(sh in list_only):
-			list_cpp_p.append(sh)
+		for ssh in list_only:
+			if(ssh in sh):
+				list_cpp_p.append(sh)
 	list_cpp=list_cpp_p[:]
 
 
 #REMOVE
 if(list_remove!=[]):
 	for sh in list_remove:
-		list_cpp.remove(sh)
+		for rm in list_cpp:
+			if(sh in rm):
+				list_cpp.remove(rm)
+				break
 
+#generate .o files
 for i in range(0,len(list_cpp)):
 	charac = ""
 	for c in list_cpp[i]:
@@ -56,6 +84,8 @@ for i in range(0,len(list_cpp)):
 	list_o.append(charac+".o")
 
 
+for fileDisp in list_o:
+	print(fileDisp)
 
 CONTENT = "PType : "
 
@@ -74,7 +104,10 @@ CONTENT+= "-o Ptype-app -lsfml-graphics -lsfml-window -lsfml-system \n"
 CONTENT+="\n"
 
 #Compile .cpp
-list_o.remove("main.o")
+for rm in list_o:
+	if("main.o" in rm):
+		list_o.remove(rm)
+		break
 #Main
 name="main.o"
 CONTENT+=name+": "+name[:-2]+".cpp"
@@ -93,13 +126,27 @@ for name in list_o:
 
 
 
+#build remove
+REMOVE = ""
+
+for subdir in list_subdir:
+	if(subdir!="./"):
+		REMOVE+= "\t rm ./" + subdir + "/*.o \n"
+	else:
+		REMOVE += "\t rm *.o \n"
+
+
 CONTENT_POST = """
 
 clean : 
-	rm -rf *.o
-	
+"""
+CONTENT_POST+= REMOVE
+CONTENT_POST+= """
+
 cleanAll :
-	rm -rf *.o
+"""
+CONTENT_POST+= REMOVE
+CONTENT_POST+="""
 	rm -rf $(Ptype-app)
 """
 
