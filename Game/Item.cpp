@@ -3,6 +3,9 @@
 void Item::inCollide(Object* obj){
     if(obj->get_team()==PLAYER){
         alive = false ;
-        obj->inCollide(this);
+        obj->addLife(lifeEffect);
+        obj->addBombs(bombUp);
+        obj->addLives(oneUp);
+        obj->addScore(scoreUp);
     }
 }

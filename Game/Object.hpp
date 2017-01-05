@@ -45,8 +45,12 @@ class Object : public Point, public Material{
 		 * Check collision and get effects through inCollision function
 		 */
 		void collide(Object* obj);
-        virtual int getDamage(){return 0 ;};
+        int getDamage(){return 0 ;};
 
+        virtual void addLife(int adding){}
+        virtual void addLives(const int nbLives){}
+        virtual void addBombs(const int nbBombs){}
+        virtual void addScore(const int scorePoints){}
 };
 
 #endif

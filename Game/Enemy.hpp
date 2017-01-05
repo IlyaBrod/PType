@@ -10,6 +10,9 @@ class Enemy : public Unit {
 
         void inCollide(Object* obj);
         int getDamage(){return collideDmg ;}
+        void addLives(const int nbLives){};
+        void addBombs(const int nbBombs){};
+        void addScore(const int scorePoints){};
 };
 
 #endif

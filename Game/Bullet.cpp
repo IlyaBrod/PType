@@ -9,12 +9,23 @@ Bullet::Bullet(std::string texturePath, const Point &origine, const Rectangle &b
 }
 
 void Bullet::inCollide(Object* obj){
-    if(team != obj->get_team()){
-        if(obj->get_team() != ITEM){
-            alive = false ;
-            if(obj->get_team() != DECOR){
-                obj->inCollide(this);
+    switch(obj->get_team()){
+        case PLAYER :
+            if(team == ENEMY){
+                obj->addLife(dmg);
+                alive = false ;
             }
-        }
+            break;
+        case ENEMY :
+            if(team == PLAYER){
+                obj->addLife(dmg);
+                alive = false ;
+            }
+            break ;
+        case DECOR :
+            alive = false ;
+            break ;
+        default :
+            break ;
     }
 }
