@@ -5,7 +5,11 @@
 
 class Enemy : public Unit {
     protected :
-        void inCollide(Object &obj);
+
+    public :
+
+        void inCollide(Object* obj);
+        int getDamage(){return collideDmg ;}
 };
 
 #endif

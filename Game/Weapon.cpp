@@ -4,11 +4,6 @@ Weapon::Weapon(std::string texturePath, const int dmg): Object(texturePath), dam
 
 Weapon::Weapon(){}
 
-int Weapon::getDomage()
-{
-	return damage;
-}
-
-void Weapon::inCollide(Object &obj){
+void Weapon::inCollide(Object* obj){
 
 }

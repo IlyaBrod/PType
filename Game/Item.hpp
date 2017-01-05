@@ -4,9 +4,13 @@
 #include "Object.hpp"
 
 class Item : public Object{
-
     protected :
-        void inCollide(Object &obj);
+        int lifeEffect ; //effect on life
+
+    public :
+
+        void inCollide(Object* obj);
+        int getDamage(){return lifeEffect ;}
 };
 
 #endif

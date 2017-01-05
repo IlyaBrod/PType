@@ -6,9 +6,11 @@
 #include "../Basic/Rectangle.hpp"
 #include "../Basic/Material.hpp"
 
+enum Team{PLAYER, ENEMY, DECOR, ITEM};
+
 class Object : public Point, public Material{
 	protected :
-	
+
     //Object hitbox is defined by a Rectangle
 		Rectangle hitbox;
     //frame rate for texture animation
@@ -18,9 +20,10 @@ class Object : public Point, public Material{
 		bool solid;
     //object is visible or not
 		bool visible;
-
-    //implement collision effects (virtual function)
-        virtual void inCollide(Object &obj)=0;
+    //Team of the Object
+        Team team ;
+    //is alive (if false, Object is destroyed at end of tick)
+        bool alive ;
 
 	public :
     //constructors
@@ -31,14 +34,18 @@ class Object : public Point, public Material{
     //accessors read
         bool get_solid()const{return solid;}
         bool get_visible()const{return visible;}
+        Team get_team()const{return team ;}
     //accessors write
         void set_solid(bool solid){this->solid = solid;}
         void set_visible(bool visible){this->visible = visible;}
 
+    //implement collision effects (virtual function)
+        virtual void inCollide(Object* obj)=0;
 		/**
 		 * Check collision and get effects through inCollision function
 		 */
-		void collide(Object &obj);
+		void collide(Object* obj);
+        virtual int getDamage(){return 0 ;};
 
 };
 
