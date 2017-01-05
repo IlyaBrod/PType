@@ -78,7 +78,7 @@ void Menu::setExitButton(Button knopka)
 	exitButton=knopka;
 	exitButton.setScale(scaleFactors[0],scaleFactors[1]);
 	sf::FloatRect boundary = background.getGlobalBounds();
-	exitButton.setPosition(boundary.width-exitButton.width,background.getPosition().y);
+	exitButton.setPosition(boundary.width-exitButton.width+background.getPosition().x,background.getPosition().y);
 }
 
 void Menu::addObj(Material obj,LOCATION loc)
