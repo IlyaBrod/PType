@@ -2,13 +2,11 @@
 
 void Decor::inCollide(Object* obj){
     switch(obj->get_team()){
-        case PLAYER :
-            break;
-        case ENEMY :
+        case PBULLET :
+            obj->alive = false ;
             break ;
-        case DECOR :
-            break ;
-        case ITEM :
+        case EBULLET :
+            obj->alive = false ;
             break ;
         default :
             break ;

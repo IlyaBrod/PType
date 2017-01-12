@@ -26,7 +26,7 @@ void Object::inCollide(Object* obj)
 }
 void Object::collide(Object* obj)
 {
-	if(solid && hitbox.intersects(obj->hitbox) && obj->solid)
+	if(alive && obj->alive && solid && obj->solid && hitbox.intersects(obj->hitbox))
 	{
 	    //implement collision effects
 		inCollide(obj);

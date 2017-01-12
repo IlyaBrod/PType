@@ -15,6 +15,7 @@ class Unit : public Object{
 		Unit(std::string texturePath, Point point, sf::IntRect box, int life);
 		Unit(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg);
 
+        int getCollideDmg()const{return collideDmg;}
 		//virtual void inCollide(Object* obj);
 
 		void die();
