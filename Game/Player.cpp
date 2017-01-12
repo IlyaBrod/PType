@@ -4,14 +4,16 @@ Player::Player(std::string texturePath, Point point, sf::IntRect box, int life) 
 
 void Player::inCollide(Object* obj){
     switch(obj->get_team()){
-        case PLAYER :
-
-            break;
         case ENEMY :
-
+            life += obj->getDamage();
+            obj->set_alive(false);
             break ;
-        case DECOR :
-            alive = false ;
+        case EBULLET :
+            life += obj->getDamage();
+            obj->set_alive(false);
+            break ;
+        case ITEM :
+            obj->inCollide(this);
             break ;
         default :
             break ;

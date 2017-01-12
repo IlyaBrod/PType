@@ -13,7 +13,9 @@ class Item : public Object{
     public :
 
         void inCollide(Object* obj);
+
         int getDamage(){return lifeEffect ;}
+
 };
 
 #endif

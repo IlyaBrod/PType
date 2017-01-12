@@ -3,14 +3,12 @@
 void Item::inCollide(Object* obj){
     switch(obj->get_team()){
         case PLAYER :
-
-            break;
-        case ENEMY :
-
-            break ;
-        case DECOR :
             alive = false ;
-            break ;
+            obj->addLife(lifeEffect);
+            obj->addBombs(bombUp);
+            obj->addLives(oneUp);
+            obj->addScore(scoreUp);
+            break;
         default :
             break ;
     }
