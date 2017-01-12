@@ -7,6 +7,7 @@ class Enemy : public Unit {
     protected :
 
     public :
+        Enemy(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg);
 
         void inCollide(Object* obj);
         int getDamage(){return collideDmg ;}

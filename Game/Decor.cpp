@@ -1,5 +1,10 @@
 #include "Decor.hpp"
 
+Decor::Decor(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &solid, const bool &visible):
+    Object(texturePath, origine, box, solid, visible){
+
+}
+
 void Decor::inCollide(Object* obj){
     switch(obj->get_team()){
         case PBULLET :
