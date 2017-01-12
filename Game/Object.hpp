@@ -6,6 +6,8 @@
 #include "../Basic/Rectangle.hpp"
 #include "../Basic/Material.hpp"
 
+#include "../Config/WEAPON_CONFIG.hpp"
+
 enum Team{PLAYER, ENEMY, PBULLET, EBULLET, DECOR, ITEM};
 
 class Object : public Point, public Material{
@@ -52,6 +54,7 @@ class Object : public Point, public Material{
         virtual void addLives(const int nbLives){}
         virtual void addBombs(const int nbBombs){}
         virtual void addScore(const int scorePoints){}
+        virtual void addPower(const int powerUp){}
 };
 
 #endif

@@ -20,4 +20,8 @@ void Player::inCollide(Object* obj){
     }
 }
 
-
+void Player::addPower(const int powerUp){
+    wpn_power[select_wpn] += powerUp ;
+    if(wpn_power[select_wpn] < MAXPOWER)
+        wpn_power[select_wpn] = MAXPOWER ;
+}
