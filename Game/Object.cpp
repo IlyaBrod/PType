@@ -34,3 +34,8 @@ void Object::collide(Object* obj)
 
 }
 
+void Object::move(int x, int y){
+    setX(getX()+x);
+    setY(getY()+y);
+    Sprite::move(x,y);
+}

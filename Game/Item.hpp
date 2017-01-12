@@ -12,6 +12,8 @@ class Item : public Object{
         int scoreUp ;
     public :
 
+        Item(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &solid, const bool &visible);
+
         void inCollide(Object* obj);
 
         int getDamage(){return lifeEffect ;}
