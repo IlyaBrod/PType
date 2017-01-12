@@ -5,8 +5,10 @@
 
 class Explosion : public Object{
     protected :
-
+        int ticks ;
     public :
+        Explosion();
+
         void inCollide(Object* obj);
         int getDamage(){return 0 ;}
 };

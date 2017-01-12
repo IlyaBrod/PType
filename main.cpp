@@ -32,15 +32,16 @@ int main(int argv, char** argc){
 
 	*/
 
-	Player poutine(PLAYER_PIC,Point(0,0),Rectangle(),5);
+	Player poutine(PLAYER_PIC,Point(0,0), sf::IntRect(),5);
 	poutine.scale(0.2,0.2);
 	poutine.move(100,100);
-	
-	
+
+
 	//Global game
 	gSTATE gameStatus = inMenu;
-	
+
 	int SCREEN[2] = {1366,768};
+
 	
 	//Imgs universelles aux menus
 	Material menuBackground(MENU_BG_PIC);
@@ -72,6 +73,7 @@ int main(int argv, char** argc){
 	 * TEST ZONE
 	 */
 
+
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
@@ -95,36 +97,36 @@ int main(int argv, char** argc){
 
 		//DISPLAY
 		window.clear(sf::Color::Black);
-		
+
 		switch(gameStatus)
 		{
 			case(inMenu):
 				mainMenu.draw(window);
 				break;
-				
+
 			case(inOption):
 				break;
-				
+
 			case(inScore):
 				mainMenu.draw(window);
 				scoreMenu.draw(window);
 				break;
-				
+
 			case(inGame):
 				poutine.draw(window);
 				break;
-				
+
 			case(inPause):
 				break;
-				
+
 			default:
 				break;
 		}
-		
+
         window.display();
     }
 
-	
+
 	return 0 ;
 }
 

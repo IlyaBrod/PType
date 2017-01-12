@@ -1,8 +1,18 @@
 #include "Enemy.hpp"
 
 void Enemy::inCollide(Object* obj){
-    if(obj->get_team()==PLAYER){
-        life += obj->getDamage();
-        obj->inCollide(this);
+    switch(obj->get_team()){
+        case PLAYER :
+            alive = false ;
+            life = 0 ;
+            obj->addLife(collideDmg);
+            break ;
+        case PBULLET :
+            addLife(obj->getDamage());
+            break ;
+        case DECOR :
+            break ;
+        default :
+            break ;
     }
 }
