@@ -9,3 +9,5 @@
 #define MENU_RIGHT_BORDER_PIC "Images/Menu/verticalPlanck1.png"
 
 #define BUTTON_EXIT "Images/Menu/exit.png"
+
+#define MENU_BUTTON "Images/Menu/button.png"

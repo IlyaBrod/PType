@@ -90,3 +90,8 @@ float* Material::getSizeFactor()
 {
 	return scaleFactors;
 }
+
+void Material::setScale(float factorX,float factorY)
+{
+	sf::Sprite::setScale(factorX,factorY);
+}

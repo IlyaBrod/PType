@@ -73,15 +73,20 @@ void Menu::setBotBorder(Material border)
 	
 }
 
-void Menu::addObj(Material obj,LOCATION loc)
+void Menu::setExitButton(Button knopka)
 {
-	objList.push_back(obj);
-	objLoc.push_back(loc);
-	
+	exitButton=knopka;
+	exitButton.setScale(scaleFactors[0],scaleFactors[1]);
+	sf::FloatRect boundary = background.getGlobalBounds();
+	exitButton.setPosition(boundary.width-exitButton.width+background.getPosition().x,background.getPosition().y);
 }
 		
 void Menu::draw(sf::RenderWindow& window)
 {
+	if(exitButton.pressed==true)
+	{
+		exit();
+	}
 	if(visible==true)
 	{
 		background.draw(window);
@@ -89,15 +94,32 @@ void Menu::draw(sf::RenderWindow& window)
 		rightBorder.draw(window);
 		topBorder.draw(window);
 		botBorder.draw(window);
+		exitButton.draw(window);
+		exitButton.refresh();
 		
-		if(objList.size()!=0)
-		{
-			for(int i=0;i<objList.size();i++)
-			{
-				objList[i].draw(window);
-			}
-		}
 	}
+}
+
+void Menu::draw_1(sf::RenderWindow& window)
+{
+	if(exitButton.pressed==true)
+	{
+		exit();
+	}
+	background.draw(window);
+}
+void Menu::draw_2(sf::RenderWindow& window)
+{
+	if(exitButton.pressed==true)
+	{
+		exit();
+	}
+	leftBorder.draw(window);
+	rightBorder.draw(window);
+	topBorder.draw(window);
+	botBorder.draw(window);
+	exitButton.draw(window);
+	exitButton.refresh();
 }
 
 void Menu::setVisible()
@@ -108,4 +130,10 @@ void Menu::setVisible()
 void Menu::exit() 
 {
 	visible=false;
+	exitButton.pressed=false;
+}
+
+bool Menu::isVisible()
+{
+	return visible;
 }

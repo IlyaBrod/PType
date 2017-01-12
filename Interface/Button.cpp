@@ -1,16 +1,25 @@
 #include "Button.hpp"
 
 
+Button::Button(){}
+
 Button::Button(std::string path) : Material(path)
 {
 	pressed=false;
+	sf::FloatRect boundary = sf::Sprite::getGlobalBounds();
+	width = boundary.width;
+	height = boundary.height;
 }
 
-Button::Button(int x, int y, int width, int height,std::string path) : Material(path), sf::IntRect(x,y,width,height)
+Button::Button(int x, int y,std::string path) : Material(path), sf::IntRect(x,y,width,height)
 {
 	pressed=false;
-	sf::Sprite::move(x,y);
+	sf::FloatRect boundary = sf::Sprite::getGlobalBounds();
+	width = boundary.width;
+	height = boundary.height;
+	sf::Sprite::setPosition(x,y);
 }
+
 
 void Button::refresh()
 {
@@ -19,6 +28,31 @@ void Button::refresh()
 	if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		pressed=true;
-		std::cout << "PRESSED : " << pressed << std::endl;
 	}
+}
+
+void Button::setScale(float factorX, float factorY)
+{
+	sf::Sprite::setScale(factorX,factorY);
+	sf::FloatRect boundary = sf::Sprite::getGlobalBounds();
+	width = boundary.width;
+	height = boundary.height;
+}
+
+
+void Button::setPosition(int x, int y)
+{
+	sf::Sprite::setPosition(x,y);
+	left = x;
+	top = y;
+}
+
+int Button::getHeight()
+{
+	return height;
+}
+
+int Button::getWidth()
+{
+	return width;
 }

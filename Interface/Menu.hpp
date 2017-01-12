@@ -6,6 +6,7 @@
 #include "../Basic/Rectangle.hpp"
 #include "../Basic/Point.hpp"
 #include "../Basic/Material.hpp"
+#include "Button.hpp"
 #include <vector>
 
 typedef enum {TOP,BOT,LEFT,RIGHT,CENTER} LOCATION;
@@ -16,23 +17,20 @@ typedef enum {TOP,BOT,LEFT,RIGHT,CENTER} LOCATION;
  */
 class Menu : public Rectangle
 {
-	private:
-		
+	protected:
 		Point origine;
+		float* scaleFactors; //factors to resize pictures
+		bool visible;
 		int width;
 		int height;
 		
+	private:
 		Material background;
 		Material leftBorder;
 		Material rightBorder;
 		Material topBorder;
 		Material botBorder;
-		float* scaleFactors; //factors to resize pictures
-		
-		std::vector<Material> objList;
-		std::vector<LOCATION> objLoc;
-		
-		bool visible;
+		Button exitButton;
 	
 	public:
 		
@@ -69,24 +67,34 @@ class Menu : public Rectangle
 		void setBotBorder(Material border);
 		
 		/**
-		 * Add an object to display
-		 * @param obj Material
-		 * @param loc Location of the object in the window
+		 * Set the exit button of the menu
 		 */
-		void addObj(Material obj,LOCATION loc);
-		
+		void setExitButton(Button knopka);
+		 
+
 		/**
 		 * Display menu with all objects
 		 * @param window
 		 */
 		void draw(sf::RenderWindow& window);
 		
+		/**
+		 * Partial display
+		 * @param window
+		 */
+		void draw_1(sf::RenderWindow& window);
+		void draw_2(sf::RenderWindow& window);
 		
 		/**
 		 * Set visibility to 1
 		 */
 		void setVisible();
 		
+		/**
+		 * Give the visibility of the object
+		 */
+		bool isVisible();
+
 		/**
 		 * Fermeture du menu
 		 */

@@ -12,18 +12,30 @@ class Button : public Material, public sf::Mouse, public sf::IntRect
 	
 	public:
 	bool pressed;
+	Button();
 	Button(std::string path);
-	Button(int x,int y, int width, int height,std::string path);
+	Button(int x,int y,std::string path);
 	
 	/**
 	 * Verify if the button is pressed
 	 */
 	void refresh();
 	
+	/**
+	 * Redefinition of setScale Sprite function
+	 */
+	void setScale(float factorX, float factorY);
 	
+	/**
+	 * Set the position of the button
+	 */
+	void setPosition(int x, int y);
 	
-	
-	
+	/**
+	 * Return button dimensions
+	 */
+	int getWidth();
+	int getHeight();
 };
 
 

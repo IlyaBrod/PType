@@ -11,6 +11,7 @@
 
 #include "Interface/Menu.hpp"
 #include "Interface/Button.hpp"
+#include "Interface/MainMenu.hpp"
 
 #include "Config/INTERFACE_CONFIG.hpp"
 #include "Config/PLAYER_CONFIG.hpp"
@@ -41,42 +42,36 @@ int main(int argv, char** argc){
 
 	int SCREEN[2] = {1366,768};
 
-
-	Material mainMenuBackground(MENU_BG_PIC);
-	Material mainMenuTopBorder(MENU_TOP_BORDER_PIC);
-	Material mainMenuBotBorder(MENU_BOT_BORDER_PIC);
-	Material mainMenuLeftBorder(MENU_LEFT_BORDER_PIC);
-	Material mainMenuRightBorder(MENU_RIGHT_BORDER_PIC);
-
-	Menu mainMenu(0,0,SCREEN[0],SCREEN[1]);
-	mainMenu.setBackground(mainMenuBackground);
-	mainMenu.setBotBorder(mainMenuBotBorder);
-	mainMenu.setTopBorder(mainMenuTopBorder);
-	mainMenu.setLeftBorder(mainMenuLeftBorder);
-	mainMenu.setRightBorder(mainMenuRightBorder);
-
-	Material scoreMenuBackground(MENU_BG_PIC);
-	Material scoreMenuTopBorder(MENU_TOP_BORDER_PIC);
-	Material scoreMenuBotBorder(MENU_BOT_BORDER_PIC);
-	Material scoreMenuLeftBorder(MENU_LEFT_BORDER_PIC);
-	Material scoreMenuRightBorder(MENU_RIGHT_BORDER_PIC);
-
+	
+	//Imgs universelles aux menus
+	Material menuBackground(MENU_BG_PIC);
+	Material menuTopBorder(MENU_TOP_BORDER_PIC);
+	Material menuBotBorder(MENU_BOT_BORDER_PIC);
+	Material menuLeftBorder(MENU_LEFT_BORDER_PIC);
+	Material menuRightBorder(MENU_RIGHT_BORDER_PIC);
+	Button menuExit(10,10,BUTTON_EXIT);
+	
+	MainMenu mainMenu(0,0,SCREEN[0],SCREEN[1]);
+	mainMenu.setBackground(menuBackground);
+	mainMenu.setBotBorder(menuBotBorder);
+	mainMenu.setTopBorder(menuTopBorder);
+	mainMenu.setLeftBorder(menuLeftBorder);
+	mainMenu.setRightBorder(menuRightBorder);
+	mainMenu.setExitButton(menuExit);
+	
 	Menu scoreMenu(SCREEN[0]/2-200,SCREEN[1]/2-200,100,100);
-	scoreMenu.setBackground(scoreMenuBackground);
-	scoreMenu.setBotBorder(scoreMenuBotBorder);
-	scoreMenu.setTopBorder(scoreMenuTopBorder);
-	scoreMenu.setLeftBorder(scoreMenuLeftBorder);
-	scoreMenu.setRightBorder(scoreMenuRightBorder);
-
-	//mainMenu.setVisible();
-
-	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type");//,sf::Style::Fullscreen
+	scoreMenu.setBackground(menuBackground);
+	scoreMenu.setBotBorder(menuBotBorder);
+	scoreMenu.setTopBorder(menuTopBorder);
+	scoreMenu.setLeftBorder(menuLeftBorder);
+	scoreMenu.setRightBorder(menuRightBorder);
+	scoreMenu.setExitButton(menuExit);
+	
+	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type",sf::Style::Fullscreen);//,sf::Style::Fullscreen
 
 	/**
 	 * TEST ZONE
 	 */
-	 Button mainMenuExit(10,10,80,80,BUTTON_EXIT);
-
 
 
 	//##################	MAIN LOOP	################################
@@ -94,10 +89,30 @@ int main(int argv, char** argc){
                 gameStatus=inExit;
             }
         }
-
-        if(mainMenuExit.pressed==true)
+        
+        if(mainMenu.isVisible()==false)
         {
 			gameStatus=inExit;
+		}
+
+		if(mainMenu.isScore())
+		{
+			gameStatus=inScore;
+		}
+		
+		if(mainMenu.isOption())
+		{
+			gameStatus=inOption;
+		}
+		
+		if(mainMenu.isPlay())
+		{
+			gameStatus=inGame;
+		}
+
+		if(scoreMenu.isVisible()==false)
+		{
+			gameStatus=inMenu;
 		}
 
 		//DISPLAY
@@ -107,9 +122,6 @@ int main(int argv, char** argc){
 		{
 			case(inMenu):
 				mainMenu.draw(window);
-				mainMenuExit.draw(window);
-				mainMenuExit.refresh();
-
 				break;
 
 			case(inOption):
