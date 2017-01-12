@@ -12,7 +12,7 @@ class Object : public Point, public Material{
 	protected :
 
     //Object hitbox is defined by a Rectangle
-		Rectangle hitbox;
+		sf::IntRect hitbox;
     //frame rate for texture animation
 		int frequency;
 
@@ -29,8 +29,8 @@ class Object : public Point, public Material{
     //constructors
 		Object();
 		Object(std::string texturePath);
-		Object(std::string texturePath, Point origine, Rectangle box);
-		Object(std::string texturePath, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible);
+		Object(std::string texturePath, Point origine, sf::IntRect box);
+		Object(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &solid, const bool &visible);
     //accessors read
         bool get_solid()const{return solid;}
         bool get_visible()const{return visible;}
@@ -45,8 +45,12 @@ class Object : public Point, public Material{
 		 * Check collision and get effects through inCollision function
 		 */
 		void collide(Object* obj);
-        virtual int getDamage(){return 0 ;};
+        int getDamage(){return 0 ;};
 
+        virtual void addLife(int adding){}
+        virtual void addLives(const int nbLives){}
+        virtual void addBombs(const int nbBombs){}
+        virtual void addScore(const int scorePoints){}
 };
 
 #endif

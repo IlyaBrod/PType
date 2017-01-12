@@ -8,7 +8,7 @@ class Bullet : public Object{
         int dmg ;
     public :
         Bullet();
-        Bullet(std::string texturePath, const Point &origine, const Rectangle &box, const bool &solid, const bool &visible, const int &dmg);
+        Bullet(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &solid, const bool &visible, const int &dmg);
 
         //inCollide function : destroy bullet (set solid = false)
         void inCollide(Object* obj);

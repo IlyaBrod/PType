@@ -4,8 +4,6 @@
 #include "Object.hpp"
 #include "../Config/WEAPON_CONFIG.hpp"
 
-enum Weapon_Type{Shovel, Vodka, Gun, Laser, Missile, Nuke};
-
 class Weapon : public Object
 {
 	protected :
