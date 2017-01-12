@@ -9,10 +9,13 @@
 #define NUKE_DMG	50
 
 #define SHOVEL_PIC
-#define VODKA_PIC	
-#define GUN_PIC		
-#define LASER_PIC	
-#define MISSILE_PIC	
-#define NUKE_PIC	
+#define VODKA_PIC
+#define GUN_PIC
+#define LASER_PIC
+#define MISSILE_PIC
+#define NUKE_PIC
+
+#define WPN_TYPE_NB 6
+enum Weapon_Type{Shovel, Vodka, Gun, Laser, Missile, Nuke};
 
 #endif
