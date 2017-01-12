@@ -11,6 +11,7 @@
 
 #include "Interface/Menu.hpp"
 #include "Interface/Button.hpp"
+#include "Interface/MainMenu.hpp"
 
 #include "Config/INTERFACE_CONFIG.hpp"
 #include "Config/PLAYER_CONFIG.hpp"
@@ -37,11 +38,11 @@ int main(int argv, char** argc){
 	
 	
 	//Global game
-	gSTATE gameStatus = inScore;
+	gSTATE gameStatus = inMenu;
 	
 	int SCREEN[2] = {1366,768};
 	
-	
+	//Imgs universelles aux menus
 	Material menuBackground(MENU_BG_PIC);
 	Material menuTopBorder(MENU_TOP_BORDER_PIC);
 	Material menuBotBorder(MENU_BOT_BORDER_PIC);
@@ -49,7 +50,7 @@ int main(int argv, char** argc){
 	Material menuRightBorder(MENU_RIGHT_BORDER_PIC);
 	Button menuExit(10,10,BUTTON_EXIT);
 	
-	Menu mainMenu(0,0,SCREEN[0],SCREEN[1]);
+	MainMenu mainMenu(0,0,SCREEN[0],SCREEN[1]);
 	mainMenu.setBackground(menuBackground);
 	mainMenu.setBotBorder(menuBotBorder);
 	mainMenu.setTopBorder(menuTopBorder);
@@ -70,7 +71,7 @@ int main(int argv, char** argc){
 	/**
 	 * TEST ZONE
 	 */
-	 
+	 Material splash = Material(SPLASH_PIC);
 
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
@@ -100,7 +101,7 @@ int main(int argv, char** argc){
 		{
 			case(inMenu):
 				mainMenu.draw(window);
-				
+				splash.draw(window);
 				break;
 				
 			case(inOption):

@@ -46,3 +46,13 @@ void Button::setPosition(int x, int y)
 	left = x;
 	top = y;
 }
+
+int Button::getHeight()
+{
+	return height;
+}
+
+int Button::getWidth()
+{
+	return width;
+}

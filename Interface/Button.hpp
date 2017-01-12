@@ -31,7 +31,11 @@ class Button : public Material, public sf::Mouse, public sf::IntRect
 	 */
 	void setPosition(int x, int y);
 	
-	
+	/**
+	 * Return button dimensions
+	 */
+	int getWidth();
+	int getHeight();
 };
 
 

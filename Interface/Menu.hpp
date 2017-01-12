@@ -17,21 +17,20 @@ typedef enum {TOP,BOT,LEFT,RIGHT,CENTER} LOCATION;
  */
 class Menu : public Rectangle
 {
-	private:
-		
+	protected:
 		Point origine;
+		float* scaleFactors; //factors to resize pictures
+		bool visible;
 		int width;
 		int height;
 		
+	private:
 		Material background;
 		Material leftBorder;
 		Material rightBorder;
 		Material topBorder;
 		Material botBorder;
 		Button exitButton;
-		float* scaleFactors; //factors to resize pictures
-		
-		bool visible;
 	
 	public:
 		
