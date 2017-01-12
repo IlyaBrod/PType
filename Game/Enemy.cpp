@@ -3,13 +3,14 @@
 void Enemy::inCollide(Object* obj){
     switch(obj->get_team()){
         case PLAYER :
-
-            break;
-        case ENEMY :
-
+            alive = false ;
+            life = 0 ;
+            obj->addLife(collideDmg);
+            break ;
+        case PBULLET :
+            addLife(obj->getDamage());
             break ;
         case DECOR :
-            alive = false ;
             break ;
         default :
             break ;
