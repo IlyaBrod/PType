@@ -38,7 +38,7 @@ int main(int argv, char** argc){
 
 
 	//Global game
-	gSTATE gameStatus = inMenu;
+	gSTATE gameStatus = inGame;
 
 	int SCREEN[2] = {1366,768};
 
@@ -66,6 +66,14 @@ int main(int argv, char** argc){
 	scoreMenu.setLeftBorder(menuLeftBorder);
 	scoreMenu.setRightBorder(menuRightBorder);
 	scoreMenu.setExitButton(menuExit);
+	
+	Menu gameMenu(0,0,SCREEN[0],SCREEN[1]);
+	gameMenu.setBackground(menuBackground);
+	gameMenu.setBotBorder(menuBotBorder);
+	gameMenu.setTopBorder(menuTopBorder);
+	gameMenu.setLeftBorder(menuLeftBorder);
+	gameMenu.setRightBorder(menuRightBorder);
+	gameMenu.setExitButton(menuExit);
 	
 	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type",sf::Style::Fullscreen);//,sf::Style::Fullscreen
 
@@ -116,7 +124,12 @@ int main(int argv, char** argc){
 			gameStatus=inMenu;
 			scoreMenu.exit();
 			mainMenu.update();
-			
+		}
+
+		if(gameMenu.isVisible()==false && gameStatus==inGame)
+		{
+			gameStatus=inMenu;
+			gameMenu.exit();
 		}
 
 
@@ -138,7 +151,9 @@ int main(int argv, char** argc){
 				break;
 
 			case(inGame):
+				gameMenu.draw_1(window);
 				poutine.draw(window);
+				gameMenu.draw_2(window);
 				break;
 
 			case(inPause):
