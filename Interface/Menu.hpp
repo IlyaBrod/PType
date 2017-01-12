@@ -31,9 +31,6 @@ class Menu : public Rectangle
 		Button exitButton;
 		float* scaleFactors; //factors to resize pictures
 		
-		std::vector<Material> objList;
-		std::vector<LOCATION> objLoc;
-		
 		bool visible;
 	
 	public:
@@ -75,13 +72,7 @@ class Menu : public Rectangle
 		 */
 		void setExitButton(Button knopka);
 		 
-		/**
-		 * Add an object to display
-		 * @param obj Material
-		 * @param loc Location of the object in the window
-		 */
-		void addObj(Material obj,LOCATION loc);
-		
+
 		/**
 		 * Display menu with all objects
 		 * @param window

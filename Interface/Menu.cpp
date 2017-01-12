@@ -80,13 +80,6 @@ void Menu::setExitButton(Button knopka)
 	sf::FloatRect boundary = background.getGlobalBounds();
 	exitButton.setPosition(boundary.width-exitButton.width+background.getPosition().x,background.getPosition().y);
 }
-
-void Menu::addObj(Material obj,LOCATION loc)
-{
-	objList.push_back(obj);
-	objLoc.push_back(loc);
-	
-}
 		
 void Menu::draw(sf::RenderWindow& window)
 {
@@ -104,13 +97,6 @@ void Menu::draw(sf::RenderWindow& window)
 		exitButton.draw(window);
 		exitButton.refresh();
 		
-		if(objList.size()!=0)
-		{
-			for(int i=0;i<objList.size();i++)
-			{
-				objList[i].draw(window);
-			}
-		}
 	}
 }
 
