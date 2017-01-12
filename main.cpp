@@ -71,7 +71,6 @@ int main(int argv, char** argc){
 	/**
 	 * TEST ZONE
 	 */
-	 Material splash = Material(SPLASH_PIC);
 
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
@@ -101,7 +100,6 @@ int main(int argv, char** argc){
 		{
 			case(inMenu):
 				mainMenu.draw(window);
-				splash.draw(window);
 				break;
 				
 			case(inOption):

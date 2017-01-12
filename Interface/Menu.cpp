@@ -100,6 +100,28 @@ void Menu::draw(sf::RenderWindow& window)
 	}
 }
 
+void Menu::draw_1(sf::RenderWindow& window)
+{
+	if(exitButton.pressed==true)
+	{
+		exit();
+	}
+	background.draw(window);
+}
+void Menu::draw_2(sf::RenderWindow& window)
+{
+	if(exitButton.pressed==true)
+	{
+		exit();
+	}
+	leftBorder.draw(window);
+	rightBorder.draw(window);
+	topBorder.draw(window);
+	botBorder.draw(window);
+	exitButton.draw(window);
+	exitButton.refresh();
+}
+
 void Menu::setVisible()
 {
 	visible=true;

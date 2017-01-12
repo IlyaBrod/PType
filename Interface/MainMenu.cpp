@@ -16,6 +16,7 @@ MainMenu::MainMenu(const int &xo,const int &yo,const int &width,const int &heigh
 	play = Button(xo,yo,MENU_BUTTON);
 	score = Button(xo,yo,MENU_BUTTON);
 	option = Button(xo,yo,MENU_BUTTON);
+	splash = Material(SPLASH_PIC);
 }
 
 
@@ -24,13 +25,13 @@ void MainMenu::draw(sf::RenderWindow& window)
 	play.refresh();
 	option.refresh();
 	score.refresh();
+	Menu::draw_1(window);
 	
-	Menu::draw(window);
 	play.draw(window);
 	option.draw(window);
 	score.draw(window);
 	splash.draw(window);
-	
+	Menu::draw_2(window);
 	
 }
 

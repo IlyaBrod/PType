@@ -78,6 +78,12 @@ class Menu : public Rectangle
 		 */
 		void draw(sf::RenderWindow& window);
 		
+		/**
+		 * Partial display
+		 * @param window
+		 */
+		void draw_1(sf::RenderWindow& window);
+		void draw_2(sf::RenderWindow& window);
 		
 		/**
 		 * Set visibility to 1
