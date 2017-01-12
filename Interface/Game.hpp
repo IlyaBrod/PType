@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "../Config/PLAYER_CONFIG.hpp"
+
 #include "../Game/Object.hpp"
 #include "../Game/Bullet.hpp"
 #include "../Game/Decor.hpp"
@@ -20,12 +22,19 @@ class Game{
         std::vector<Object*> objects ;
         std::ifstream levelFile ;
         int tick ;
+        
+        float* scaleFactor;
+        
+        bool visible;
+        
     public :
         Game();
 
         void loadLevel(std::string path);
         void closeLevel();
         void checkEvent();
+        void draw(sf::RenderWindow& window);
+        void setScaleFactor(float* scaleFactor);
 };
 
 

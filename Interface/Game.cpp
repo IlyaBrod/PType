@@ -3,15 +3,46 @@
 Game::Game(){
     tick=0;
     loadLevel("level1.txt");
+	scaleFactor = new float[2];
+	scaleFactor[0] = 1;
+	scaleFactor[1] = 1;
 
+	Player* poutine = new Player(PLAYER_PIC,Point(0,0), sf::IntRect(),5);
+	objects.push_back(poutine);
+	
+	
+	
 }
 
 void Game::loadLevel(std::string path){
-    levelFile.open(path);
+    //levelFile.open(path);
 }
 
 void Game::closeLevel(){
-    levelFile.close();
+    //levelFile.close();
 }
 
-void checkEvent()
+void Game::checkEvent()
+{
+	
+}
+
+
+void Game::draw(sf::RenderWindow& window)
+{
+	for(unsigned int i=0;i<objects.size();i++)
+	{
+		objects.at(i) -> draw(window);
+	}
+}
+
+void Game::setScaleFactor(float* sf)
+{
+	scaleFactor[0] = sf[0];
+	scaleFactor[1] = sf[1];
+	
+	for(unsigned int i=0;i<objects.size();i++)
+	{
+		objects.at(i) -> setScale(scaleFactor[0],scaleFactor[1]);
+	}
+}

@@ -79,6 +79,7 @@ void MainMenu::exit()
 
 void MainMenu::update()
 {
+	Menu::update();
 	play.refresh();
 	score.refresh();
 	option.refresh();

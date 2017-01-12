@@ -3,9 +3,6 @@
 #include <iostream>
 
 
-#include "Game/Player.hpp"
-#include "Game/Weapon.hpp"
-
 #include "Basic/generalFunctions.hpp"
 #include "Basic/Material.hpp"
 
@@ -16,6 +13,8 @@
 #include "Config/INTERFACE_CONFIG.hpp"
 #include "Config/PLAYER_CONFIG.hpp"
 #include "Config/WEAPON_CONFIG.hpp"
+
+#include "Interface/Game.hpp"
 
 using namespace std ;
 
@@ -31,10 +30,7 @@ int main(int argv, char** argc){
 								Weapon(MISSILE_PIC, MISSILE_DMG), Weapon(NUKE_PIC, NUKE_DMG)	};
 
 	*/
-
-	Player poutine(PLAYER_PIC,Point(0,0), sf::IntRect(),5);
-	poutine.scale(0.2,0.2);
-	poutine.move(100,100);
+	Game* game = new Game();
 
 
 	//Global game
@@ -81,12 +77,14 @@ int main(int argv, char** argc){
 	 * TEST ZONE
 	 */
 
+	game -> setScaleFactor(gameMenu.getScaleFactor());
 
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
 
 		//EVENTS
+		///////////////////////////////////////////////
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -97,6 +95,7 @@ int main(int argv, char** argc){
                 gameStatus=inExit;
             }
         }
+        ///////////////////////////////////////////////
         
         if(mainMenu.isVisible()==false)
         {
@@ -122,14 +121,14 @@ int main(int argv, char** argc){
 		if(scoreMenu.isVisible()==false && gameStatus==inScore)
 		{
 			gameStatus=inMenu;
-			scoreMenu.exit();
+			scoreMenu.update();
 			mainMenu.update();
 		}
 
 		if(gameMenu.isVisible()==false && gameStatus==inGame)
 		{
 			gameStatus=inMenu;
-			gameMenu.exit();
+			gameMenu.update();
 		}
 
 
@@ -152,7 +151,7 @@ int main(int argv, char** argc){
 
 			case(inGame):
 				gameMenu.draw_1(window);
-				poutine.draw(window);
+				game -> draw(window);
 				gameMenu.draw_2(window);
 				break;
 

@@ -32,7 +32,7 @@ void Button::refresh()
 		lock=true;
 		pressed=false;
 	}
-	else if(sf::Mouse::isButtonPressed(sf::Mouse::Left)==false && lock==true)
+	else if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left)==false && lock==true)
 	{
 		lock=false;
 		pressed=true;
@@ -40,7 +40,10 @@ void Button::refresh()
 	else
 	{
 		pressed=false;
+		lock=false;
 	}
+	
+	
 }
 
 void Button::setScale(float factorX, float factorY)

@@ -130,10 +130,21 @@ void Menu::setVisible()
 void Menu::exit() 
 {
 	visible=false;
-	exitButton.pressed=false;
+	exitButton.refresh();
 }
 
 bool Menu::isVisible()
 {
 	return visible;
+}
+
+float* Menu::getScaleFactor()
+{
+	return scaleFactors;
+}
+
+
+void Menu::update()
+{
+	exitButton.refresh();
 }
