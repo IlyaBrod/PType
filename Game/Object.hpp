@@ -37,6 +37,7 @@ class Object : public Point, public Material{
         Team get_team()const{return team ;}
     //accessors write
         void set_solid(bool solid){this->solid = solid;}
+        void set_alive(const bool alive){this->alive = alive ;}
         void set_visible(bool visible){this->visible = visible;}
 
     //implement collision effects (virtual function)
