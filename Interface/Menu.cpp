@@ -130,6 +130,7 @@ void Menu::setVisible()
 void Menu::exit() 
 {
 	visible=false;
+	exitButton.pressed=false;
 }
 
 bool Menu::isVisible()

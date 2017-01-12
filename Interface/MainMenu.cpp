@@ -51,3 +51,20 @@ void MainMenu::setBackground(Material obj)
 	splash.setPosition(origine.getX(),origine.getY());
 	
 }
+
+
+
+bool MainMenu::isPlay()
+{
+	return play.pressed;
+}
+
+bool MainMenu::isOption()
+{
+	return option.pressed;
+}
+
+bool MainMenu::isScore()
+{
+	return score.pressed;
+}
