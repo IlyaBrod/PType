@@ -6,6 +6,7 @@
 class Bullet : public Object{
     protected :
         int dmg ;
+        Weapon_Type type ;
     public :
         Bullet();
         Bullet(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &_solid, const bool &_visible, const int &_dmg, const Team _team);
