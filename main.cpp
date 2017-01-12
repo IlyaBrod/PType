@@ -95,25 +95,30 @@ int main(int argv, char** argc){
 			gameStatus=inExit;
 		}
 
-		if(mainMenu.isScore())
+		if(mainMenu.isScore() && gameStatus==inMenu)
 		{
 			gameStatus=inScore;
+			scoreMenu.setVisible();
 		}
 		
-		if(mainMenu.isOption())
+		if(mainMenu.isOption() && gameStatus==inMenu)
 		{
 			gameStatus=inOption;
 		}
 		
-		if(mainMenu.isPlay())
+		if(mainMenu.isPlay() && gameStatus==inMenu)
 		{
 			gameStatus=inGame;
 		}
 
-		if(scoreMenu.isVisible()==false)
+		if(scoreMenu.isVisible()==false && gameStatus==inScore)
 		{
 			gameStatus=inMenu;
+			scoreMenu.exit();
+			mainMenu.update();
+			
 		}
+
 
 		//DISPLAY
 		window.clear(sf::Color::Black);

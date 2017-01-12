@@ -68,3 +68,18 @@ bool MainMenu::isScore()
 {
 	return score.pressed;
 }
+
+void MainMenu::exit()
+{
+	Menu::exit();
+	play.pressed=false;
+	score.pressed=false;
+	option.pressed=false;
+}
+
+void MainMenu::update()
+{
+	play.refresh();
+	score.refresh();
+	option.refresh();
+}

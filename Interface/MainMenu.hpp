@@ -22,7 +22,9 @@ class MainMenu : public Menu
 		
 		void draw(sf::RenderWindow& window);
 		void setBackground(Material obj);
-
+		void update();
+		void exit();
+	
 		bool isPlay();
 		bool isOption();
 		bool isScore();
