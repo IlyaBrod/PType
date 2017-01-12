@@ -3,6 +3,8 @@
 
 #include "Unit.hpp"
 
+#define MAXPOWER 255
+
 class Player : public Unit{
 
     protected :
@@ -19,6 +21,9 @@ class Player : public Unit{
 		void addLives(const int nbLives){lives += nbLives ;}
 		void addBombs(const int nbBombs){bombs += nbBombs ;}
 		void addScore(const int scorePoints){score += scorePoints ;}
+        void addPower(const int powerUp);
+
+        void setWeapon(const Weapon_Type wpn){select_wpn = wpn ;}
 };
 
 #endif

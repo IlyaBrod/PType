@@ -8,6 +8,7 @@ void Item::inCollide(Object* obj){
             obj->addBombs(bombUp);
             obj->addLives(oneUp);
             obj->addScore(scoreUp);
+            obj->addPower(powerUp);
             break;
         default :
             break ;
