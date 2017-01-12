@@ -2,21 +2,21 @@
 
 Object::Object():Point(),Material()
 {
-	hitbox = Rectangle();
+	hitbox = sf::IntRect();
 }
 
 Object::Object(std::string texturePath):Point(),Material(texturePath)
 {
-	hitbox = Rectangle();
+	hitbox = sf::IntRect();
 
 }
 
-Object::Object(std::string texturePath, Point origine,Rectangle box):Point(origine.getX(),origine.getY()),Material(texturePath)
+Object::Object(std::string texturePath, Point origine, sf::IntRect box):Point(origine.getX(),origine.getY()),Material(texturePath)
 {
 	hitbox = box;
 }
 
-Object::Object(std::string texturePath, const Point &origine, const Rectangle &box, const bool &_solid, const bool &_visible):
+Object::Object(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &_solid, const bool &_visible):
     Point(origine), Material(texturePath), hitbox(box), solid(_solid), visible(_visible) {}
 
 
@@ -26,7 +26,7 @@ void Object::inCollide(Object* obj)
 }
 void Object::collide(Object* obj)
 {
-	if(solid && hitbox.intersect(obj->hitbox) && obj->solid)
+	if(solid && hitbox.intersects(obj->hitbox) && obj->solid)
 	{
 	    //implement collision effects
 		inCollide(obj);

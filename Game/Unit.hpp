@@ -12,8 +12,8 @@ class Unit : public Object{
 		//Weapon* weapons[];
 
 	public :
-		Unit(std::string texturePath, Point point, Rectangle box, int life);
-		Unit(std::string texturePath, Point point, Rectangle box, int life, int collideDmg);
+		Unit(std::string texturePath, Point point, sf::IntRect box, int life);
+		Unit(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg);
 
 		//virtual void inCollide(Object* obj);
 

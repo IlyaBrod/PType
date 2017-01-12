@@ -12,7 +12,7 @@ class Player : public Unit{
         int bombs ;
         int score ;
     public:
-		Player(std::string texturePath, Point point, Rectangle box, int life);
+		Player(std::string texturePath, Point point, sf::IntRect box, int life);
 
         void inCollide(Object* obj);
 		int getDamage(){return collideDmg ;}
