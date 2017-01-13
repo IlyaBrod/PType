@@ -11,3 +11,5 @@
 #define BUTTON_EXIT "Images/Menu/exit.png"
 
 #define MENU_BUTTON "Images/Menu/button.png"
+
+#define TEXT_FONT "Images/Russian.ttf"
