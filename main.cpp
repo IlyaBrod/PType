@@ -192,7 +192,7 @@ int main(int argv, char** argc){
 
 		//ENEMY AUTO SHOOT  ///////
 
-
+		
         // COLISIONS //////////////
         int vecSize = game->getNbObjects();
         for(int i = 0 ; i < vecSize ; i++){
@@ -200,14 +200,15 @@ int main(int argv, char** argc){
                 game->getObject(i)->collide(game->getObject(j));
             }
         }
-
+/*
         //CHECK ALIVE ///////////
         for(int i = 0 ; i < vecSize ; i++){
             if(game->getObject(i)->get_alive()==false){
                 game->deleteObject(i);
+                vecSize = game->getNbObjects();
             }
         }
-
+*/
 
         ///////////////////////////////////////////////
 

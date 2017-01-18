@@ -4,10 +4,10 @@ CC = g++
 EXEC = PType
 all : $(EXEC)
 
-PType : Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/MainMenu.o Interface/Menu.o Interface/Interface.o Interface/Button.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o 
-	g++ Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/MainMenu.o Interface/Menu.o Interface/Interface.o Interface/Button.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o -o Ptype-app -lsfml-graphics -lsfml-window -lsfml-system 
+PType : Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/MainMenu.o Interface/Game.o Interface/Menu.o Interface/Interface.o Interface/Button.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o 
+	g++ Basic/Rectangle.o Basic/generalFunctions.o Basic/Material.o Basic/Point.o Interface/MainMenu.o Interface/Game.o Interface/Menu.o Interface/Interface.o Interface/Button.o Game/Bullet.o Game/Weapon.o Game/Object.o Game/Item.o Game/Player.o Game/Decor.o Game/Unit.o Game/Enemy.o Game/Explosion.o main.o -o Ptype-app -lsfml-graphics -lsfml-window -lsfml-system 
 
-main.o: main.cpp Basic/Rectangle.hpp Basic/generalFunctions.hpp Basic/Material.hpp Basic/Point.hpp Interface/MainMenu.hpp Interface/Menu.hpp Interface/Interface.hpp Interface/Button.hpp Game/Bullet.hpp Game/Weapon.hpp Game/Object.hpp Game/Item.hpp Game/Player.hpp Game/Decor.hpp Game/Unit.hpp Game/Enemy.hpp Game/Explosion.hpp
+main.o: main.cpp Basic/Rectangle.hpp Basic/generalFunctions.hpp Basic/Material.hpp Basic/Point.hpp Interface/MainMenu.hpp Interface/Game.hpp Interface/Menu.hpp Interface/Interface.hpp Interface/Button.hpp Game/Bullet.hpp Game/Weapon.hpp Game/Object.hpp Game/Item.hpp Game/Player.hpp Game/Decor.hpp Game/Unit.hpp Game/Enemy.hpp Game/Explosion.hpp
 	g++ -c main.cpp -o main.o
 
 Basic/Rectangle.o: Basic/Rectangle.cpp Basic/Rectangle.hpp
@@ -24,6 +24,9 @@ Basic/Point.o: Basic/Point.cpp Basic/Point.hpp
 
 Interface/MainMenu.o: Interface/MainMenu.cpp Interface/MainMenu.hpp
 	g++ -c Interface/MainMenu.cpp -o Interface/MainMenu.o
+
+Interface/Game.o: Interface/Game.cpp Interface/Game.hpp
+	g++ -c Interface/Game.cpp -o Interface/Game.o
 
 Interface/Menu.o: Interface/Menu.cpp Interface/Menu.hpp
 	g++ -c Interface/Menu.cpp -o Interface/Menu.o
@@ -70,6 +73,7 @@ clean :
 	 rm ./Game/*.o 
 	 rm ./Config/*.o 
 	 rm ./Images/*.o 
+	 rm ./levels/*.o 
 
 
 cleanAll :
@@ -79,5 +83,6 @@ cleanAll :
 	 rm ./Game/*.o 
 	 rm ./Config/*.o 
 	 rm ./Images/*.o 
+	 rm ./levels/*.o 
 
 	rm -rf $(Ptype-app)

@@ -13,7 +13,7 @@ Game::Game(){
 	background[0].setPosition(0,0);
 	background[1].setPosition(SCREENW,0);
 
-	Player* poutine = new Player(PLAYER_PIC,Point(0,0), sf::IntRect(),5);
+	Player* poutine = new Player(PLAYER_PIC,Point(0,0), sf::IntRect(),16);
 	poutine->move(poutine->getTextureWidth(),poutine->getTextureHeight()*2);
 	objects.push_back(poutine);
 
@@ -77,6 +77,6 @@ void Game::backgroundMove()
 }
 
 void Game::deleteObject(int i){
-    delete objects[i];
+    //delete objects[i];
     objects.erase(objects.begin()+i);
 }
