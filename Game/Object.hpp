@@ -8,6 +8,8 @@
 
 #include "../Config/WEAPON_CONFIG.hpp"
 
+#include <cstdlib>
+
 enum {STRAIGHT, HOMING, HOMING_STRAIGHT};
 enum Team{PLAYER, ENEMY, PBULLET, EBULLET, DECOR, ITEM};
 
@@ -38,6 +40,7 @@ class Object : public Point, public Material{
         bool get_solid()const{return solid;}
         bool get_visible()const{return visible;}
         Team get_team()const{return team ;}
+        bool get_alive()const{return alive;}
     //accessors write
         void set_solid(bool solid){this->solid = solid;}
         void set_alive(const bool alive){this->alive = alive ;}

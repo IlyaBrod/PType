@@ -1,5 +1,9 @@
 #include "Enemy.hpp"
 
+Enemy(): Enemy(ENEMY_BEAR, Point(SCREENW, SCREENH/(rand()%16), sf::IntRect())
+{
+}
+
 Enemy::Enemy(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg):
     Unit(texturePath, point, box, life, collideDmg){
     speed = ENEMY_DEFAULTSPEED ;
@@ -16,6 +20,8 @@ void Enemy::inCollide(Object* obj){
             break ;
         case PBULLET :
             addLife(obj->getDamage());
+            if(life<=0)
+                alive = false ;
             break ;
         case DECOR :
             break ;
