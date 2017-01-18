@@ -14,7 +14,7 @@ class Enemy : public Unit {
         int shootTick ;
         int movePattern ;
     public :
-        Enemy();
+        Enemy(std::string texturePath);
         Enemy(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg);
 
         int getSpeed()const{return speed ;}

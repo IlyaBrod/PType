@@ -21,7 +21,7 @@ typedef enum {inMenu,inOption,inGame,inPause,inScore,inExit} gSTATE;
 
 
 int main(int argv, char** argc){
-
+    srand(time(NULL));
 
 	//##################       INIT    	################################
 	/*
@@ -192,7 +192,7 @@ int main(int argv, char** argc){
 
 		//ENEMY AUTO SHOOT  ///////
 
-		
+
         // COLISIONS //////////////
         vecSize = game->getNbObjects();
         for(int i = 0 ; i < vecSize ; i++){
