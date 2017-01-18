@@ -29,16 +29,16 @@ void Player::inCollide(Object* obj){
 
 void Player::move(int x, int y){
     setX(getX()+x);
-    if(getX()<0)
-        setX(0);
-    if(getY()<0)
-        setY(0);
-    if(getX()>SCREENW)
-        setX(SCREENW);
-    if(getY()>SCREENH)
-        setY(SCREENH);
     setY(getY()+y);
-    Sprite::move(x,y);
+    if(getX()<getTextureWidth())
+        setX(getTextureWidth());
+    if(getY()<getTextureHeight()/4)
+        setY(getTextureHeight()/4);
+    if(getX()>SCREENW-getTextureWidth()*3/2)
+        setX(SCREENW-getTextureWidth()*3/2);
+    if(getY()>SCREENH-getTextureHeight())
+        setY(SCREENH-getTextureHeight());
+    Sprite::setPosition(getX(),getY());
 }
 
 void Player::addPower(const int powerUp){

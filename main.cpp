@@ -86,7 +86,7 @@ int main(int argv, char** argc){
 
 	bool comUp=false, comLeft=false, comDown=false, comRight=false;
 	bool comShoot = false ;
-
+	int vecSize;
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
@@ -192,9 +192,9 @@ int main(int argv, char** argc){
 
 		//ENEMY AUTO SHOOT  ///////
 
-
+		
         // COLISIONS //////////////
-        int vecSize = game->getNbObjects();
+        vecSize = game->getNbObjects();
         for(int i = 0 ; i < vecSize ; i++){
             for(int j = i+1 ; j < vecSize ; j++){
                 game->getObject(i)->collide(game->getObject(j));
@@ -202,9 +202,10 @@ int main(int argv, char** argc){
         }
 
         //CHECK ALIVE ///////////
-        for(int i = 0 ; i < vecSize ; i++){
+        for(int i = vecSize-1 ; i >= 0 ; i--){
             if(game->getObject(i)->get_alive()==false){
                 game->deleteObject(i);
+                vecSize = game->getNbObjects();
             }
         }
 

@@ -7,7 +7,13 @@ Game::Game(){
 	scaleFactor[0] = 1;
 	scaleFactor[1] = 1;
 
-	Player* poutine = new Player(PLAYER_PIC,Point(0,0), sf::IntRect(),5);
+	background = new Material[2];
+	background[0] = Material(GAME_BACKGROUND);
+	background[1] = Material(GAME_BACKGROUND);
+	background[0].setPosition(0,0);
+	background[1].setPosition(SCREENW,0);
+
+	Player* poutine = new Player(PLAYER_PIC,Point(0,0), sf::IntRect(),16);
 	poutine->move(poutine->getTextureWidth(),poutine->getTextureHeight()*2);
 	objects.push_back(poutine);
 
@@ -31,6 +37,9 @@ void Game::checkEvent()
 
 void Game::draw(sf::RenderWindow& window)
 {
+	background[0].draw(window);
+	background[1].draw(window);
+	backgroundMove();
 	for(unsigned int i=0;i<objects.size();i++)
 	{
 		objects.at(i) -> draw(window);
@@ -46,9 +55,28 @@ void Game::setScaleFactor(float* sf)
 	{
 		objects.at(i) -> setScale(scaleFactor[0],scaleFactor[1]);
 	}
+	
+	background[0].setScale(scaleFactor[0],scaleFactor[1]);
+	background[1].setScale(scaleFactor[0],scaleFactor[1]);
+}
+
+
+void Game::backgroundMove()
+{
+	if(background[0].mat_getX()==-SCREENW)
+	{
+		background[0].move(2*SCREENW,0);
+	}
+	if(background[1].mat_getX()==-SCREENW)
+	{
+		background[1].move(2*SCREENW,0);
+	}
+	
+	background[0].move(-GAME_BACKGROUND_SPEED,0);
+	background[1].move(-GAME_BACKGROUND_SPEED,0);
 }
 
 void Game::deleteObject(int i){
-    delete objects[i];
+    //delete objects[i];
     objects.erase(objects.begin()+i);
 }
