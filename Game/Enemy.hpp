@@ -5,8 +5,6 @@
 
 #define ENEMY_DEFAULTSPEED 10
 
-enum {STRAIGHT, HOMING, HOMING_STRAIGHT};
-
 class Enemy : public Unit {
     protected :
         int speed ;
