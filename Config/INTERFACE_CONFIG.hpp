@@ -1,3 +1,4 @@
+#ifndef INTERFACE_CONFIG_HPP
 
 #define SPLASH_PIC "Images/Launcher.png"
 
@@ -12,4 +13,14 @@
 
 #define MENU_BUTTON "Images/Menu/button.png"
 
+
 #define TEXT_FONT "Images/Russian.ttf"
+
+#ifndef SCREENW
+#define SCREENW 1366
+#endif // SCREENW
+#ifndef SCREENH
+#define SCREENH 768
+#endif // SCREENH
+
+#endif
