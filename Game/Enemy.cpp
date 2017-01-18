@@ -3,6 +3,8 @@
 Enemy::Enemy(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg):
     Unit(texturePath, point, box, life, collideDmg){
     speed = ENEMY_DEFAULTSPEED ;
+    shootTick = 16 ;
+    movePattern = STRAIGHT ;
 }
 
 void Enemy::inCollide(Object* obj){
@@ -43,4 +45,16 @@ void Enemy::autoMove(int t, Object *obj){
             move(-speed*2/3, 0);
             break ;
     }
+    if(getX() < -255 || getX() > SCREENW+255 || getY() < -128 || getX() > SCREENH+128)
+        alive = false ;
+}
+
+Object* Enemy::shoot(){
+    shootTick-- ;
+    if(shootTick <= 0){
+        shootTick = 16 ;
+        Bullet* bullet = new Bullet();
+        return bullet ;
+    }
+    return NULL ;
 }

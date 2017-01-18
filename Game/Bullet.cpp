@@ -32,3 +32,19 @@ void Bullet::inCollide(Object* obj){
             break ;
     }
 }
+
+void Bullet::autoMove(int t, Object* obj){
+    switch(t){
+        case STRAIGHT :
+            if(get_team()==PBULLET){
+                move(DEFAULT_BULLETSPEED, 0);
+            }else{
+                move(-DEFAULT_BULLETSPEED, 0);
+            }
+            break ;
+        default:
+            break;
+    }
+    if(getX() < -255 || getX() > SCREENW+255 || getY() < -128 || getX() > SCREENH+128)
+        alive = false ;
+}
