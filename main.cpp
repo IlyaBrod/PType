@@ -84,6 +84,7 @@ int main(int argv, char** argc){
 	scoreMenu.exit();
 	mainMenu.setVisible();
 	
+	bool comUp=false, comLeft=false, comDown=false, comRight=false;
 	
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
@@ -101,27 +102,77 @@ int main(int argv, char** argc){
                 window.close();
                 gameStatus=inExit;
             }
-            
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+
+
+			if (event.type == sf::Event::KeyPressed)
 			{
-				game -> getObject(0) -> move(-X_SPEED,0);
+				// MOVE ACTIVATE
+				if (event.key.code == sf::Keyboard::Left)
+				{
+					comLeft=true ;
+				}
+				
+				if(event.key.code ==sf::Keyboard::Right)
+				{
+					comRight = true ;
+					
+				}
+				
+				if(event.key.code ==sf::Keyboard::Up)
+				{
+					comUp = true ;
+					
+				}
+				
+				if(event.key.code ==sf::Keyboard::Down)
+				{
+					comDown = true ;
+				}
 			}
-			
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			else if(event.type == sf::Event::KeyReleased)
 			{
-				game -> getObject(0) -> move(X_SPEED,0);
-			}
-			
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				game -> getObject(0) -> move(0,-Y_SPEED);
-			}
-			
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				game -> getObject(0) -> move(0,Y_SPEED);
+				//MOVE RELEASE
+				if (event.key.code ==sf::Keyboard::Left)
+				{
+					comLeft=false ;
+				}
+				
+				if(event.key.code ==sf::Keyboard::Right)
+				{
+					comRight = false ;
+				}
+				
+				if(event.key.code ==sf::Keyboard::Up)
+				{
+					comUp = false ;
+				}
+				
+				if(event.key.code ==sf::Keyboard::Down)
+				{
+					comDown = false ;
+				}
 			}
         }
+        
+        //AFFECT MOVE
+        if(comUp)
+        {
+			game -> getObject(0) -> move(0,-Y_SPEED);
+		}
+		if(comDown)
+		{
+			game -> getObject(0) -> move(0,Y_SPEED);
+		}
+		if(comLeft)
+		{
+			game -> getObject(0) -> move(-X_SPEED,0);
+		}
+		if(comRight)
+		{
+			game -> getObject(0) -> move(X_SPEED,0);
+		}
+        
+        
         ///////////////////////////////////////////////
         
         if(mainMenu.isVisible()==false && gameStatus!=inGame)
