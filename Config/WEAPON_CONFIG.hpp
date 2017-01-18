@@ -8,7 +8,7 @@
 #define MISSILE_DMG	8
 #define NUKE_DMG	50
 
-#define SHOVEL_PIC
+#define SHOVEL_PIC "Images/Weapons/pelle.png"
 #define VODKA_PIC
 #define GUN_PIC
 #define LASER_PIC
