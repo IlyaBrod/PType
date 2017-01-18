@@ -23,6 +23,8 @@ class Player : public Unit{
 		void addScore(const int scorePoints){score += scorePoints ;}
         void addPower(const int powerUp);
 
+        Object* shoot();
+
         void setWeapon(const Weapon_Type wpn){select_wpn = wpn ;}
 };
 
