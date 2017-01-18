@@ -1,8 +1,6 @@
 #include "Enemy.hpp"
 
-Enemy(): Enemy(ENEMY_BEAR, Point(SCREENW, SCREENH/(rand()%16), sf::IntRect())
-{
-}
+//Enemy::Enemy(): Enemy(ENEMY_BEAR, Point(SCREENW, SCREENH/(rand()%16)), sf::IntRect(0,0,0,0), 16, 16){}
 
 Enemy::Enemy(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg):
     Unit(texturePath, point, box, life, collideDmg){
