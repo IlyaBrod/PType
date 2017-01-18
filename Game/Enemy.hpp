@@ -3,11 +3,19 @@
 
 #include "Unit.hpp"
 
+#define ENEMY_DEFAULTSPEED 10
+
+enum {STRAIGHT, HOMING, HOMING_STRAIGHT};
+
 class Enemy : public Unit {
     protected :
-
+        int speed ;
     public :
         Enemy(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg);
+
+        int getSpeed()const{return speed ;}
+
+        void autoMove(int t, Object *obj=NULL);
 
         void inCollide(Object* obj);
         int getDamage(){return collideDmg ;}
