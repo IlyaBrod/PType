@@ -1,3 +1,4 @@
+#ifndef INTERFACE_CONFIG_HPP
 
 #define SPLASH_PIC "Images/Launcher.png"
 
@@ -11,3 +12,12 @@
 #define BUTTON_EXIT "Images/Menu/exit.png"
 
 #define MENU_BUTTON "Images/Menu/button.png"
+
+#ifndef SCREENW
+#define SCREENW 1366
+#endif // SCREENW
+#ifndef SCREENH
+#define SCREENH 768
+#endif // SCREENH
+
+#endif
