@@ -4,6 +4,7 @@
 #include "../Config/INTERFACE_CONFIG.hpp"
 #include "Unit.hpp"
 #include "Bullet.hpp"
+#include "../Config/ENEMY_CONFIG.hpp"
 
 #define ENEMY_DEFAULTSPEED 10
 
@@ -13,6 +14,7 @@ class Enemy : public Unit {
         int shootTick ;
         int movePattern ;
     public :
+        Enemy();
         Enemy(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg);
 
         int getSpeed()const{return speed ;}

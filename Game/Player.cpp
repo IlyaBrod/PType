@@ -18,6 +18,13 @@ void Player::inCollide(Object* obj){
         default :
             break ;
     }
+    if(life<=0){
+        setX(getTextureWidth());
+        setY(getTextureHeight()*2);
+        lives-- ;
+        if(lives <= 0)
+            alive = false ;
+    }
 }
 
 void Player::move(int x, int y){
