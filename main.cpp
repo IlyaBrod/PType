@@ -184,7 +184,7 @@ int main(int argv, char** argc){
 		}
 		if(comShoot)
 		{
-			//game->addObject(Bullet(   ));  ///a completer
+			game->addObject(game->getObject(0)->shoot());  ///a completer
 		}
 
 		//ENEMY AUTO MOVE   ///////
