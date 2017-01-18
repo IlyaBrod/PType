@@ -16,9 +16,9 @@ Game::Game(){
 	Player* poutine = new Player(PLAYER_PIC,Point(0,0), sf::IntRect(),5);
 	poutine->move(poutine->getTextureWidth(),poutine->getTextureHeight()*2);
 	objects.push_back(poutine);
-	
-	
-	
+
+
+
 }
 
 void Game::loadLevel(std::string path){
@@ -31,7 +31,7 @@ void Game::closeLevel(){
 
 void Game::checkEvent()
 {
-	
+
 }
 
 
@@ -50,7 +50,7 @@ void Game::setScaleFactor(float* sf)
 {
 	scaleFactor[0] = sf[0];
 	scaleFactor[1] = sf[1];
-	
+
 	for(unsigned int i=0;i<objects.size();i++)
 	{
 		objects.at(i) -> setScale(scaleFactor[0],scaleFactor[1]);
@@ -74,4 +74,9 @@ void Game::backgroundMove()
 	
 	background[0].move(-GAME_BACKGROUND_SPEED,0);
 	background[1].move(-GAME_BACKGROUND_SPEED,0);
+}
+
+void Game::deleteObject(int i){
+    delete objects[i];
+    objects.erase(objects.begin()+i);
 }
