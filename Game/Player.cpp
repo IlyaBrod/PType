@@ -20,8 +20,27 @@ void Player::inCollide(Object* obj){
     }
 }
 
+void Player::move(int x, int y){
+    setX(getX()+x);
+    if(getX()<0)
+        setX(0);
+    if(getY()<0)
+        setY(0);
+    if(getX()>SCREENW)
+        setX(SCREENW);
+    if(getY()>SCREENH)
+        setY(SCREENH);
+    setY(getY()+y);
+    Sprite::move(x,y);
+}
+
 void Player::addPower(const int powerUp){
     wpn_power[select_wpn] += powerUp ;
     if(wpn_power[select_wpn] < MAXPOWER)
         wpn_power[select_wpn] = MAXPOWER ;
+}
+
+Object* Player::shoot(){
+    Bullet* bullet = new Bullet();
+    return bullet ;
 }

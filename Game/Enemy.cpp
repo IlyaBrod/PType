@@ -4,6 +4,7 @@ Enemy::Enemy(std::string texturePath, Point point, sf::IntRect box, int life, in
     Unit(texturePath, point, box, life, collideDmg){
     speed = ENEMY_DEFAULTSPEED ;
     shootTick = 16 ;
+    movePattern = STRAIGHT ;
 }
 
 void Enemy::inCollide(Object* obj){
@@ -51,6 +52,9 @@ void Enemy::autoMove(int t, Object *obj){
 Object* Enemy::shoot(){
     shootTick-- ;
     if(shootTick <= 0){
-        shootTick
+        shootTick = 16 ;
+        Bullet* bullet = new Bullet();
+        return bullet ;
     }
+    return NULL ;
 }

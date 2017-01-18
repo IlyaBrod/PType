@@ -2,6 +2,7 @@
 #define CLASS_PLAYER_HPP
 
 #include "Unit.hpp"
+#include "Bullet.hpp"
 
 #define MAXPOWER 255
 
@@ -15,6 +16,8 @@ class Player : public Unit{
         int score ;
     public:
 		Player(std::string texturePath, Point point, sf::IntRect box, int life);
+
+        void move(int x, int y);
 
         void inCollide(Object* obj);
 		int getDamage(){return collideDmg ;}
