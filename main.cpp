@@ -30,7 +30,7 @@ int main(int argv, char** argc){
 								Weapon(MISSILE_PIC, MISSILE_DMG), Weapon(NUKE_PIC, NUKE_DMG)	};
 
 	*/
-	 
+
 	Game* game = new Game();
 
 
@@ -39,7 +39,7 @@ int main(int argv, char** argc){
 
 	int SCREEN[2] = {1366,768};
 
-	
+
 	//Imgs universelles aux menus
 	Material menuBackground(MENU_BG_PIC);
 	Material menuTopBorder(MENU_TOP_BORDER_PIC);
@@ -47,7 +47,7 @@ int main(int argv, char** argc){
 	Material menuLeftBorder(MENU_LEFT_BORDER_PIC);
 	Material menuRightBorder(MENU_RIGHT_BORDER_PIC);
 	Button menuExit(10,10,BUTTON_EXIT);
-	
+
 	MainMenu mainMenu(0,0,SCREEN[0],SCREEN[1]);
 	mainMenu.setBackground(menuBackground);
 	mainMenu.setBotBorder(menuBotBorder);
@@ -55,7 +55,7 @@ int main(int argv, char** argc){
 	mainMenu.setLeftBorder(menuLeftBorder);
 	mainMenu.setRightBorder(menuRightBorder);
 	mainMenu.setExitButton(menuExit);
-	
+
 	Menu scoreMenu(SCREEN[0]/2-200,SCREEN[1]/2-200,100,100);
 	scoreMenu.setBackground(menuBackground);
 	scoreMenu.setBotBorder(menuBotBorder);
@@ -63,7 +63,7 @@ int main(int argv, char** argc){
 	scoreMenu.setLeftBorder(menuLeftBorder);
 	scoreMenu.setRightBorder(menuRightBorder);
 	scoreMenu.setExitButton(menuExit);
-	
+
 	Menu gameMenu(0,0,SCREEN[0],SCREEN[1]);
 	gameMenu.setBackground(menuBackground);
 	gameMenu.setBotBorder(menuBotBorder);
@@ -71,26 +71,26 @@ int main(int argv, char** argc){
 	gameMenu.setLeftBorder(menuLeftBorder);
 	gameMenu.setRightBorder(menuRightBorder);
 	gameMenu.setExitButton(menuExit);
-	
+
 	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type",sf::Style::Fullscreen);//,sf::Style::Fullscreen
 	window.setFramerateLimit(60);
 	/**
 	 * TEST ZONE
 	 */
-	
+
 	game -> setScaleFactor(gameMenu.getScaleFactor());
 
 	gameMenu.exit();
 	scoreMenu.exit();
 	mainMenu.setVisible();
-	
+
 	bool comUp=false, comLeft=false, comDown=false, comRight=false;
-	
+
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
-		
-		
+
+
 		//EVENTS
 		///////////////////////////////////////////////
         sf::Event event;
@@ -111,19 +111,19 @@ int main(int argv, char** argc){
 				{
 					comLeft=true ;
 				}
-				
+
 				if(event.key.code ==sf::Keyboard::Right)
 				{
 					comRight = true ;
-					
+
 				}
-				
+
 				if(event.key.code ==sf::Keyboard::Up)
 				{
 					comUp = true ;
-					
+
 				}
-				
+
 				if(event.key.code ==sf::Keyboard::Down)
 				{
 					comDown = true ;
@@ -136,24 +136,24 @@ int main(int argv, char** argc){
 				{
 					comLeft=false ;
 				}
-				
+
 				if(event.key.code ==sf::Keyboard::Right)
 				{
 					comRight = false ;
 				}
-				
+
 				if(event.key.code ==sf::Keyboard::Up)
 				{
 					comUp = false ;
 				}
-				
+
 				if(event.key.code ==sf::Keyboard::Down)
 				{
 					comDown = false ;
 				}
 			}
         }
-        
+
         //AFFECT MOVE
         if(comUp)
         {
@@ -171,10 +171,23 @@ int main(int argv, char** argc){
 		{
 			game -> getObject(0) -> move(X_SPEED,0);
 		}
-        
-        
+        // COLISIONS //////////////
+        int vecSize = game->getNbObjects();
+        for(int i = 0 ; i < vecSize ; i++){
+            for(int j = i+1 ; j < vecSize ; j++){
+                game->getObject(i)->collide(game->getObject(j));
+            }
+        }
+        //CHECK ALIVE ///////////
+        for(int i = 0 ; i < vecSize ; i++){
+            if(game->getObject(i)->get_alive()==false){
+                game->deleteObject(i);
+            }
+        }
+
+
         ///////////////////////////////////////////////
-        
+
         if(mainMenu.isVisible()==false && gameStatus!=inGame)
         {
 			gameStatus=inExit;
@@ -183,7 +196,7 @@ int main(int argv, char** argc){
 
 		//DISPLAY
 		window.clear(sf::Color::Black);
-		
+
 		switch(gameStatus)
 		{
 			case(inMenu):							//main Menu
@@ -203,7 +216,7 @@ int main(int argv, char** argc){
 					gameStatus=inGame;
 				}
 				mainMenu.draw(window);
-				
+
 				gameMenu.update();
 				mainMenu.update();
 				scoreMenu.update();
@@ -213,18 +226,18 @@ int main(int argv, char** argc){
 				break;
 
 			case(inScore):							//Score
-									
+
 				if(scoreMenu.isVisible()==false) gameStatus=inMenu;
 				mainMenu.draw(window);
 				scoreMenu.draw(window);
-				
+
 				gameMenu.update();
 				mainMenu.update();
 				scoreMenu.update();
 				break;
 
 			case(inGame):							//Game
-				if(gameMenu.isVisible()==false) 
+				if(gameMenu.isVisible()==false)
 				{
 					gameStatus=inMenu;
 					mainMenu.setVisible();
@@ -232,7 +245,7 @@ int main(int argv, char** argc){
 				gameMenu.draw_1(window);
 				game -> draw(window);
 				gameMenu.draw_2(window);
-				
+
 				gameMenu.update();
 				mainMenu.update();
 				scoreMenu.update();
@@ -245,7 +258,7 @@ int main(int argv, char** argc){
 				break;
 		}
         window.display();
-        
+
     }
 
 	return 0 ;

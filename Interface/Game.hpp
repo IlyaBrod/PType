@@ -22,16 +22,18 @@ class Game{
         std::vector<Object*> objects ;
         std::ifstream levelFile ;
         int tick ;
-        
+
         float* scaleFactor;
-        
+
         bool visible;
-        
+
     public :
         Game();
-		
+
 		Object* getObject(int i){return objects[i];}
-		
+		void deleteObject(int i);
+        int getNbObjects()const{return objects.size();}
+
         void loadLevel(std::string path);
         void closeLevel();
         void checkEvent();
