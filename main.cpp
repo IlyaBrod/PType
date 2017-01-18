@@ -172,14 +172,17 @@ int main(int argv, char** argc){
 			game -> getObject(0) -> move(X_SPEED,0);
 		}
         // COLISIONS //////////////
-        for(int i = 0 ; i<game->getNbObjects ; i++){
-            for(int j = i+1 ; j<game->getNbObjects ; j++){
+        int vecSize = game->getNbObjects();
+        for(int i = 0 ; i < vecSize ; i++){
+            for(int j = i+1 ; j < vecSize ; j++){
                 game->getObject(i)->collide(game->getObject(j));
             }
         }
         //CHECK ALIVE ///////////
-        for(int i = 0 ; i<game->getNbObjects ; i++){
-            if(game->getObject(i)->
+        for(int i = 0 ; i < vecSize ; i++){
+            if(game->getObject(i)->get_alive()==false){
+                game->deleteObject(i);
+            }
         }
 
 
