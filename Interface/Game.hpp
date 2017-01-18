@@ -6,6 +6,7 @@
 #include <fstream>
 
 #include "../Config/PLAYER_CONFIG.hpp"
+#include "../Config/INTERFACE_CONFIG.hpp"
 
 #include "../Game/Object.hpp"
 #include "../Game/Bullet.hpp"
@@ -16,6 +17,7 @@
 #include "../Game/Weapon.hpp"
 #include "../Game/Item.hpp"
 #include "../Game/Explosion.hpp"
+#include "../Basic/Material.hpp"
 
 class Game{
     protected :
@@ -26,6 +28,7 @@ class Game{
         float* scaleFactor;
         
         bool visible;
+        Material* background;
         
     public :
         Game();
@@ -37,6 +40,8 @@ class Game{
         void checkEvent();
         void draw(sf::RenderWindow& window);
         void setScaleFactor(float* scaleFactor);
+        
+        void backgroundMove();
 };
 
 

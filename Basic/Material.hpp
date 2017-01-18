@@ -20,6 +20,9 @@ class Material : public sf::Sprite
 		Material(std::string path,bool smooth=true);
 		Material(std::string path,int screen[2],bool smooth=true);
 	
+		float mat_getX();
+		float mat_getY();
+	
 		/**
 		 * Draw the material in a window
 		 * @param window

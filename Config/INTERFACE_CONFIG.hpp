@@ -13,6 +13,8 @@
 
 #define MENU_BUTTON "Images/Menu/button.png"
 
+#define GAME_BACKGROUND "Images/Interface/BG.png"
+#define GAME_BACKGROUND_SPEED 1
 
 #define TEXT_FONT "Images/Russian.ttf"
 

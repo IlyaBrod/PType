@@ -53,7 +53,17 @@ Material::Material(std::string path,int screen[2], bool smooth)
 
 }
 
+float Material::mat_getX()
+{
+	 sf::Vector2f vec = getPosition();
+	 return vec.x;
+}
 
+float Material::mat_getY()
+{
+	 sf::Vector2f vec = getPosition();
+	 return vec.y;
+}
 
 void Material::draw(sf::RenderWindow& window)
 {
