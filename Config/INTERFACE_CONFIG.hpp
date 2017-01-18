@@ -13,6 +13,9 @@
 
 #define MENU_BUTTON "Images/Menu/button.png"
 
+
+#define TEXT_FONT "Images/Russian.ttf"
+
 #ifndef SCREENW
 #define SCREENW 1366
 #endif // SCREENW

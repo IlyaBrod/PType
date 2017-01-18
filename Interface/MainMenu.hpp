@@ -5,7 +5,7 @@
 #include "../Basic/Material.hpp"
 #include "../Config/INTERFACE_CONFIG.hpp"
 #include <SFML/Graphics.hpp>
-//#include <iostream>
+#include <iostream>
 
 class MainMenu : public Menu
 {
@@ -15,6 +15,13 @@ class MainMenu : public Menu
 		Button score;
 		Material splash;
 		
+		sf::Font* font;
+		
+		sf::Text text_play;
+		sf::Text text_score;
+		sf::Text text_option;
+	
+		void loadText();
 	
 	public:
 		MainMenu(const int &width,const int &height);
@@ -22,7 +29,9 @@ class MainMenu : public Menu
 		
 		void draw(sf::RenderWindow& window);
 		void setBackground(Material obj);
-
+		void update();
+		void exit();
+	
 		bool isPlay();
 		bool isOption();
 		bool isScore();

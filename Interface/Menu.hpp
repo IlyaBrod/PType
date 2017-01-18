@@ -100,6 +100,16 @@ class Menu : public Rectangle
 		 */
 		void exit();
 		
+		/**
+		 * Update the buttons state
+		 */
+		void update();
+		
+		/**
+		 * Return images configuration scale factor table
+		 * @return float[2] scales factor
+		 */
+		float* getScaleFactor();
 		
 	
 	

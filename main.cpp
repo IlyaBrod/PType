@@ -2,10 +2,6 @@
 #include <SFML/Window.hpp>
 #include <iostream>
 
-
-#include "Game/Player.hpp"
-#include "Game/Weapon.hpp"
-
 #include "Basic/generalFunctions.hpp"
 #include "Basic/Material.hpp"
 
@@ -17,9 +13,12 @@
 #include "Config/PLAYER_CONFIG.hpp"
 #include "Config/WEAPON_CONFIG.hpp"
 
+#include "Interface/Game.hpp"
+
 using namespace std ;
 
 typedef enum {inMenu,inOption,inGame,inPause,inScore,inExit} gSTATE;
+
 
 int main(int argv, char** argc){
 
@@ -31,10 +30,8 @@ int main(int argv, char** argc){
 								Weapon(MISSILE_PIC, MISSILE_DMG), Weapon(NUKE_PIC, NUKE_DMG)	};
 
 	*/
-
-	Player poutine(PLAYER_PIC,Point(0,0), sf::IntRect(),5);
-	poutine.scale(0.2,0.2);
-	poutine.move(100,100);
+	 
+	Game* game = new Game();
 
 
 	//Global game
@@ -67,18 +64,35 @@ int main(int argv, char** argc){
 	scoreMenu.setRightBorder(menuRightBorder);
 	scoreMenu.setExitButton(menuExit);
 	
+	Menu gameMenu(0,0,SCREEN[0],SCREEN[1]);
+	gameMenu.setBackground(menuBackground);
+	gameMenu.setBotBorder(menuBotBorder);
+	gameMenu.setTopBorder(menuTopBorder);
+	gameMenu.setLeftBorder(menuLeftBorder);
+	gameMenu.setRightBorder(menuRightBorder);
+	gameMenu.setExitButton(menuExit);
+	
 	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type",sf::Style::Fullscreen);//,sf::Style::Fullscreen
-
+	window.setFramerateLimit(60);
 	/**
 	 * TEST ZONE
 	 */
+	
+	game -> setScaleFactor(gameMenu.getScaleFactor());
 
-
+	gameMenu.exit();
+	scoreMenu.exit();
+	mainMenu.setVisible();
+	
+	bool comUp=false, comLeft=false, comDown=false, comRight=false;
+	
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
-
+		
+		
 		//EVENTS
+		///////////////////////////////////////////////
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -88,52 +102,140 @@ int main(int argv, char** argc){
                 window.close();
                 gameStatus=inExit;
             }
+
+
+			if (event.type == sf::Event::KeyPressed)
+			{
+				// MOVE ACTIVATE
+				if (event.key.code == sf::Keyboard::Left)
+				{
+					comLeft=true ;
+				}
+				
+				if(event.key.code ==sf::Keyboard::Right)
+				{
+					comRight = true ;
+					
+				}
+				
+				if(event.key.code ==sf::Keyboard::Up)
+				{
+					comUp = true ;
+					
+				}
+				
+				if(event.key.code ==sf::Keyboard::Down)
+				{
+					comDown = true ;
+				}
+			}
+			else if(event.type == sf::Event::KeyReleased)
+			{
+				//MOVE RELEASE
+				if (event.key.code ==sf::Keyboard::Left)
+				{
+					comLeft=false ;
+				}
+				
+				if(event.key.code ==sf::Keyboard::Right)
+				{
+					comRight = false ;
+				}
+				
+				if(event.key.code ==sf::Keyboard::Up)
+				{
+					comUp = false ;
+				}
+				
+				if(event.key.code ==sf::Keyboard::Down)
+				{
+					comDown = false ;
+				}
+			}
         }
         
-        if(mainMenu.isVisible()==false)
+        //AFFECT MOVE
+        if(comUp)
+        {
+			game -> getObject(0) -> move(0,-Y_SPEED);
+		}
+		if(comDown)
+		{
+			game -> getObject(0) -> move(0,Y_SPEED);
+		}
+		if(comLeft)
+		{
+			game -> getObject(0) -> move(-X_SPEED,0);
+		}
+		if(comRight)
+		{
+			game -> getObject(0) -> move(X_SPEED,0);
+		}
+        
+        
+        ///////////////////////////////////////////////
+        
+        if(mainMenu.isVisible()==false && gameStatus!=inGame)
         {
 			gameStatus=inExit;
 		}
 
-		if(mainMenu.isScore())
-		{
-			gameStatus=inScore;
-		}
-		
-		if(mainMenu.isOption())
-		{
-			gameStatus=inOption;
-		}
-		
-		if(mainMenu.isPlay())
-		{
-			gameStatus=inGame;
-		}
-
-		if(scoreMenu.isVisible()==false)
-		{
-			gameStatus=inMenu;
-		}
 
 		//DISPLAY
 		window.clear(sf::Color::Black);
-
+		
 		switch(gameStatus)
 		{
-			case(inMenu):
+			case(inMenu):							//main Menu
+				if(mainMenu.isScore())
+				{
+					gameStatus=inScore;
+					scoreMenu.setVisible();
+				}
+				else if(mainMenu.isOption())
+				{
+					//gameStatus=inOption;
+				}
+				else if(mainMenu.isPlay())
+				{
+					gameMenu.setVisible();
+					mainMenu.exit();
+					gameStatus=inGame;
+				}
 				mainMenu.draw(window);
+				
+				gameMenu.update();
+				mainMenu.update();
+				scoreMenu.update();
 				break;
 
-			case(inOption):
+			case(inOption):							//Options
 				break;
 
-			case(inScore):
+			case(inScore):							//Score
+									
+				if(scoreMenu.isVisible()==false) gameStatus=inMenu;
 				mainMenu.draw(window);
 				scoreMenu.draw(window);
+				
+				gameMenu.update();
+				mainMenu.update();
+				scoreMenu.update();
 				break;
 
-			case(inGame):
-				poutine.draw(window);
+			case(inGame):							//Game
+				if(gameMenu.isVisible()==false) 
+				{
+					gameStatus=inMenu;
+					mainMenu.setVisible();
+				}
+				gameMenu.draw_1(window);
+				game -> draw(window);
+				gameMenu.draw_2(window);
+				
+				gameMenu.update();
+				mainMenu.update();
+				scoreMenu.update();
 				break;
 
 			case(inPause):
@@ -142,10 +244,9 @@ int main(int argv, char** argc){
 			default:
 				break;
 		}
-
         window.display();
+        
     }
-
 
 	return 0 ;
 }

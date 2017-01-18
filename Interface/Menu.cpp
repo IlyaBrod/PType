@@ -83,12 +83,13 @@ void Menu::setExitButton(Button knopka)
 		
 void Menu::draw(sf::RenderWindow& window)
 {
-	if(exitButton.pressed==true)
-	{
-		exit();
-	}
 	if(visible==true)
 	{
+		if(exitButton.isPressed())
+		{
+			exit();
+		}
+	
 		background.draw(window);
 		leftBorder.draw(window);
 		rightBorder.draw(window);
@@ -102,24 +103,30 @@ void Menu::draw(sf::RenderWindow& window)
 
 void Menu::draw_1(sf::RenderWindow& window)
 {
-	if(exitButton.pressed==true)
+	if(visible==true)
 	{
-		exit();
+		if(exitButton.isPressed())
+		{
+			exit();
+		}
+		background.draw(window);
 	}
-	background.draw(window);
 }
 void Menu::draw_2(sf::RenderWindow& window)
 {
-	if(exitButton.pressed==true)
+	if(visible==true)
 	{
-		exit();
+		if(exitButton.isPressed())
+		{
+			exit();
+		}
+		leftBorder.draw(window);
+		rightBorder.draw(window);
+		topBorder.draw(window);
+		botBorder.draw(window);
+		exitButton.draw(window);
+		exitButton.refresh();
 	}
-	leftBorder.draw(window);
-	rightBorder.draw(window);
-	topBorder.draw(window);
-	botBorder.draw(window);
-	exitButton.draw(window);
-	exitButton.refresh();
 }
 
 void Menu::setVisible()
@@ -130,10 +137,21 @@ void Menu::setVisible()
 void Menu::exit() 
 {
 	visible=false;
-	exitButton.pressed=false;
+	exitButton.refresh();
 }
 
 bool Menu::isVisible()
 {
 	return visible;
+}
+
+float* Menu::getScaleFactor()
+{
+	return scaleFactors;
+}
+
+
+void Menu::update()
+{
+	exitButton.refresh();
 }

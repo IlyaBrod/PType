@@ -5,6 +5,7 @@ Button::Button(){}
 
 Button::Button(std::string path) : Material(path)
 {
+	lock=false;
 	pressed=false;
 	sf::FloatRect boundary = sf::Sprite::getGlobalBounds();
 	width = boundary.width;
@@ -13,6 +14,7 @@ Button::Button(std::string path) : Material(path)
 
 Button::Button(int x, int y,std::string path) : Material(path), sf::IntRect(x,y,width,height)
 {
+	lock=false;
 	pressed=false;
 	sf::FloatRect boundary = sf::Sprite::getGlobalBounds();
 	width = boundary.width;
@@ -25,10 +27,23 @@ void Button::refresh()
 {
 	sf::Vector2i vec = sf::Mouse::getPosition();
 	
-	if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if(contains(vec)==false)
 	{
+		lock=false;
+		pressed=false;
+	}
+	else if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left)==true && lock==false)
+	{
+		lock=true;
+		pressed=false;
+	}
+	else if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left)==false && lock==true)
+	{
+		lock=false;
 		pressed=true;
 	}
+	
+	
 }
 
 void Button::setScale(float factorX, float factorY)
@@ -55,4 +70,17 @@ int Button::getHeight()
 int Button::getWidth()
 {
 	return width;
+}
+
+bool Button::isPressed()
+{
+	if(pressed==true)
+	{
+		pressed=false;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
