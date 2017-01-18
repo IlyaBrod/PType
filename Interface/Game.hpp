@@ -35,6 +35,8 @@ class Game{
 
 		Object* getObject(int i){return objects[i];}
 		void deleteObject(int i);
+		void addObject(Object *obj){objects.push_back(obj);}
+
         int getNbObjects()const{return objects.size();}
 
         void loadLevel(std::string path);
@@ -42,7 +44,7 @@ class Game{
         void checkEvent();
         void draw(sf::RenderWindow& window);
         void setScaleFactor(float* scaleFactor);
-        
+
         void backgroundMove();
 };
 
