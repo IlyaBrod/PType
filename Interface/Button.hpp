@@ -19,6 +19,11 @@ class Button : public Material, public sf::Mouse, public sf::IntRect
 		Button(int x,int y,std::string path);
 		
 		/**
+		 * Return button state 
+		 */
+		 bool isPressed();
+		
+		/**
 		 * Verify if the button is pressed
 		 */
 		void refresh();

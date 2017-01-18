@@ -27,20 +27,23 @@ void Button::refresh()
 {
 	sf::Vector2i vec = sf::Mouse::getPosition();
 	
-	if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left)==true && lock==false)
+	if(contains(vec)==false)
+	{
+		lock=false;
+		pressed=false;
+	}
+	else if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left)==true && lock==false)
 	{
 		lock=true;
 		pressed=false;
 	}
-	else if(sf::Mouse::isButtonPressed(sf::Mouse::Left)==false && lock==true)
+	else if(contains(vec)==true && sf::Mouse::isButtonPressed(sf::Mouse::Left)==false && lock==true)
 	{
 		lock=false;
 		pressed=true;
 	}
-	else
-	{
-		pressed=false;
-	}
+	
+	
 }
 
 void Button::setScale(float factorX, float factorY)
@@ -67,4 +70,17 @@ int Button::getHeight()
 int Button::getWidth()
 {
 	return width;
+}
+
+bool Button::isPressed()
+{
+	if(pressed==true)
+	{
+		pressed=false;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
