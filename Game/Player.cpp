@@ -48,6 +48,6 @@ void Player::addPower(const int powerUp){
 }
 
 Object* Player::shoot(){
-    Bullet* bullet = new Bullet(SHOVEL_PIC, Point(getX()+getTextureWidth()1,getY()), PBULLET);
+    Bullet* bullet = new Bullet(SHOVEL_PIC, Point(getX()+getTextureWidth()+1,getY()), PBULLET);
     return bullet ;
 }
