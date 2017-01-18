@@ -3,21 +3,26 @@
 Object::Object():Point(),Material()
 {
 	hitbox = sf::IntRect();
+	alive=true;
 }
 
 Object::Object(std::string texturePath):Point(),Material(texturePath)
 {
 	hitbox = sf::IntRect();
-
+	alive=true;
 }
 
 Object::Object(std::string texturePath, Point origine, sf::IntRect box):Point(origine.getX(),origine.getY()),Material(texturePath)
 {
 	hitbox = box;
+	alive=true;
 }
 
 Object::Object(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &_solid, const bool &_visible):
-    Point(origine), Material(texturePath), hitbox(box), solid(_solid), visible(_visible) {}
+    Point(origine), Material(texturePath), hitbox(box), solid(_solid), visible(_visible) 
+    {
+		alive=true;
+	}
 
 
 void Object::inCollide(Object* obj)
