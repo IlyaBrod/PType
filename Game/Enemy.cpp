@@ -1,6 +1,16 @@
 #include "Enemy.hpp"
 
-//Enemy::Enemy(): Enemy(ENEMY_BEAR, Point(SCREENW, SCREENH/(rand()%16)), sf::IntRect(0,0,0,0), 16, 16){}
+Enemy::Enemy(std::string texturePath): Unit(texturePath, Point(SCREENW, SCREENH/(rand()%16)), sf::IntRect(0,0,0,0), 16, 16){
+    hitbox.left = getX();
+    hitbox.top = getY();
+    hitbox.width = getTextureWidth();
+    hitbox.height = getTextureHeight();
+    sf::Sprite::setPosition(hitbox.left, hitbox.top);
+
+    speed = ENEMY_DEFAULTSPEED ;
+    shootTick = 16 ;
+    movePattern = STRAIGHT ;
+}
 
 Enemy::Enemy(std::string texturePath, Point point, sf::IntRect box, int life, int collideDmg):
     Unit(texturePath, point, box, life, collideDmg){
