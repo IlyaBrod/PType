@@ -8,6 +8,7 @@
 
 #include "../Config/WEAPON_CONFIG.hpp"
 
+enum {STRAIGHT, HOMING, HOMING_STRAIGHT};
 enum Team{PLAYER, ENEMY, PBULLET, EBULLET, DECOR, ITEM};
 
 class Object : public Point, public Material{
@@ -51,7 +52,8 @@ class Object : public Point, public Material{
 		void collide(Object* obj);
         int getDamage(){return 0 ;};
 
-        virtual void autoMove(int t, const Object *obj=NULL);
+        virtual void autoMove(int t, const Object *obj=NULL){}
+        virtual Object* shoot(){return NULL ;}
 
         virtual void addLife(int adding){}
         virtual void addLives(const int nbLives){}
