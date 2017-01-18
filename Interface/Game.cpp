@@ -8,6 +8,7 @@ Game::Game(){
 	scaleFactor[1] = 1;
 
 	Player* poutine = new Player(PLAYER_PIC,Point(0,0), sf::IntRect(),5);
+	poutine->move(100,100);
 	objects.push_back(poutine);
 	
 	

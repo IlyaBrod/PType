@@ -29,7 +29,9 @@ class Game{
         
     public :
         Game();
-
+		
+		Object* getObject(int i){return objects[i];}
+		
         void loadLevel(std::string path);
         void closeLevel();
         void checkEvent();

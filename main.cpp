@@ -83,6 +83,8 @@ int main(int argv, char** argc){
 	gameMenu.exit();
 	scoreMenu.exit();
 	mainMenu.setVisible();
+	
+	
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
@@ -99,6 +101,26 @@ int main(int argv, char** argc){
                 window.close();
                 gameStatus=inExit;
             }
+            
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			{
+				game -> getObject(0) -> move(-X_SPEED,0);
+			}
+			
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			{
+				game -> getObject(0) -> move(X_SPEED,0);
+			}
+			
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			{
+				game -> getObject(0) -> move(0,-Y_SPEED);
+			}
+			
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			{
+				game -> getObject(0) -> move(0,Y_SPEED);
+			}
         }
         ///////////////////////////////////////////////
         
