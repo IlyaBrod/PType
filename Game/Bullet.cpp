@@ -2,6 +2,22 @@
 
 Bullet::Bullet(): Object(), dmg(0){}
 
+Bullet::Bullet(std::string texturePath, const Point &origine, const Team _team) : Object(texturePath){
+    setX(origine.getX());
+    setY(origine.getY());
+
+    hitbox.left = getX();
+    hitbox.top = getY();
+    hitbox.width = getTextureWidth();
+    hitbox.height = getTextureHeight();
+    sf::Sprite::setPosition(hitbox.left, hitbox.top);
+
+    set_team(_team);
+    alive = true ;
+    visible = true ;
+    solid = true ;
+}
+
 Bullet::Bullet(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &_solid, const bool &_visible, const int &_dmg, const Team _team):
     Object(texturePath, origine, box, _solid, _visible), dmg(_dmg)
 {

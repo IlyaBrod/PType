@@ -45,6 +45,7 @@ class Object : public Point, public Material{
         void set_solid(bool solid){this->solid = solid;}
         void set_alive(const bool alive){this->alive = alive ;}
         void set_visible(bool visible){this->visible = visible;}
+        void set_team(Team team){this->team = team ;}
 
         virtual void move(int x, int y);
     //implement collision effects (virtual function)
