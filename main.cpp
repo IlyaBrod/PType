@@ -85,6 +85,7 @@ int main(int argv, char** argc){
 	mainMenu.setVisible();
 
 	bool comUp=false, comLeft=false, comDown=false, comRight=false;
+	bool comShoot = false ;
 
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
@@ -128,6 +129,11 @@ int main(int argv, char** argc){
 				{
 					comDown = true ;
 				}
+
+				if(event.key.code ==sf::Keyboard::X)        //shoot command for player
+				{
+					comShoot = true ;
+				}
 			}
 			else if(event.type == sf::Event::KeyReleased)
 			{
@@ -151,6 +157,11 @@ int main(int argv, char** argc){
 				{
 					comDown = false ;
 				}
+
+				if(event.key.code ==sf::Keyboard::X)    //shoot command for player
+				{
+					comShoot = false ;
+				}
 			}
         }
 
@@ -171,6 +182,17 @@ int main(int argv, char** argc){
 		{
 			game -> getObject(0) -> move(X_SPEED,0);
 		}
+		if(comShoot)
+		{
+			//game->addObject(Bullet(   ));  ///a completer
+		}
+
+		//ENEMY AUTO MOVE   ///////
+
+
+		//ENEMY AUTO SHOOT  ///////
+
+
         // COLISIONS //////////////
         int vecSize = game->getNbObjects();
         for(int i = 0 ; i < vecSize ; i++){
@@ -178,6 +200,7 @@ int main(int argv, char** argc){
                 game->getObject(i)->collide(game->getObject(j));
             }
         }
+
         //CHECK ALIVE ///////////
         for(int i = 0 ; i < vecSize ; i++){
             if(game->getObject(i)->get_alive()==false){
