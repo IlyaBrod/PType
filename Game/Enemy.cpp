@@ -1,6 +1,6 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy(std::string texturePath): Unit(texturePath, Point(SCREENW/2, SCREENH*(rand()%16)/16), sf::IntRect(0,0,0,0), 16, 16){
+Enemy::Enemy(std::string texturePath): Unit(texturePath, Point(SCREENW, SCREENH*(rand()%16)/16), sf::IntRect(0,0,0,0), 16, 16){
     hitbox.left = getX();
     hitbox.top = getY();
     hitbox.width = getTextureWidth();
