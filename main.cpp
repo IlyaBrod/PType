@@ -1,6 +1,7 @@
 
 #include <SFML/Window.hpp>
 #include <iostream>
+#include <cstdlib>
 
 #include "Basic/generalFunctions.hpp"
 #include "Basic/Material.hpp"
@@ -76,6 +77,7 @@ int main(int argv, char** argc){
 
 	sf::RenderWindow window(sf::VideoMode(SCREEN[0], SCREEN[1]), "P-Type",sf::Style::Fullscreen);//,sf::Style::Fullscreen
 	window.setFramerateLimit(60);
+	window.setVerticalSyncEnabled(true);
 	/**
 	 * TEST ZONE
 	 */
@@ -94,7 +96,7 @@ int main(int argv, char** argc){
 	bool hasFired = false;
 
 	int enemySpawn = 10;
-
+	int bearSel=0;
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
@@ -180,12 +182,21 @@ int main(int argv, char** argc){
 		//ENEMY AUTO MOVE   ///////
 		game-> autoMove();
 
-
 		//ADD ENEMY
 		enemySpawn--;
 		if(enemySpawn<=0){
 			enemySpawn=100;
-			Enemy* br = new Enemy(ENEMY_BEAR);
+			bearSel= rand()%4;
+			Enemy* br;
+			if(bearSel==0)
+			{
+				br = new Enemy(ENEMY_POLAR_BEAR);
+			}
+			else
+			{
+				br = new Enemy(ENEMY_BEAR);
+			}
+			
 			br -> setScale(gameMenu.getScaleFactor()[0],gameMenu.getScaleFactor()[1]);
 			game->addObject(br);
 		}
