@@ -36,11 +36,14 @@ class Object : public Point, public Material{
 		Object(std::string texturePath);
 		Object(std::string texturePath, Point origine, sf::IntRect box);
 		Object(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &solid, const bool &visible);
+
+        virtual ~Object();
     //accessors read
         bool get_solid()const{return solid;}
         bool get_visible()const{return visible;}
         Team get_team()const{return team ;}
         bool get_alive()const{return alive;}
+        int get_life()const{return 0xFFFFFFFF ;}
     //accessors write
         void set_solid(bool solid){this->solid = solid;}
         void set_alive(const bool alive){this->alive = alive ;}
