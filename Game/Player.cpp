@@ -2,6 +2,7 @@
 
 Player::Player(std::string texturePath, Point point, sf::IntRect box, int life) : Unit(texturePath,point,box,life)
 {
+    team = PLAYER ;
     solid = true ;
     visible = true ;
     alive = true ;

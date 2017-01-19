@@ -11,7 +11,7 @@
 #include <cstdlib>
 
 enum {STRAIGHT=0, HOMING=1, HOMING_STRAIGHT=2};
-enum Team{PLAYER, ENEMY, PBULLET, EBULLET, DECOR, ITEM};
+enum Team{PLAYER, ENEMY, PBULLET, EBULLET, DECOR, ITEM, EXPLOSION};
 
 class Object : public Point, public Material{
 	protected :

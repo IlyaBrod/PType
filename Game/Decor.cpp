@@ -2,7 +2,7 @@
 
 Decor::Decor(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &solid, const bool &visible):
     Object(texturePath, origine, box, solid, visible){
-
+    team = DECOR ;
 }
 
 void Decor::inCollide(Object* obj){
