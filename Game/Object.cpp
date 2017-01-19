@@ -47,3 +47,9 @@ void Object::move(int x, int y){
     setY(getY()+y);
     Sprite::setPosition(getX(), getY());
 }
+
+
+void Object::present(){
+    std::cout << "     x:"<<getX()<<" y:"<<getY() << std::endl ;
+    std::cout <<"  S:"<<solid<<" V:"<<visible<<" T:"<<team<<" A:"<<alive<< std::endl ;
+}

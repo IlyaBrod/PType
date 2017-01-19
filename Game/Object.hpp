@@ -67,6 +67,8 @@ class Object : public Point, public Material{
         virtual void addBombs(const int nbBombs){}
         virtual void addScore(const int scorePoints){}
         virtual void addPower(const int powerUp){}
+
+        virtual void present();
 };
 
 #endif
