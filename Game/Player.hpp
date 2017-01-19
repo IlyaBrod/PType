@@ -25,6 +25,8 @@ class Player : public Unit{
 		void addBombs(const int nbBombs){bombs += nbBombs ;}
 		void addScore(const int scorePoints){score += scorePoints ;}
         void addPower(const int powerUp);
+        
+        void autoMove(int t, Object* obj=NULL) {}
 
         Object* shoot();
 

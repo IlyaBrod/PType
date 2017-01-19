@@ -54,8 +54,10 @@ void Bullet::autoMove(int t, Object* obj){
         case STRAIGHT :
             if(get_team()==PBULLET){
                 move(DEFAULT_BULLETSPEED, 0);
+                Sprite::move(DEFAULT_BULLETSPEED, 0);
             }else{
                 move(-DEFAULT_BULLETSPEED, 0);
+                Sprite::move(-DEFAULT_BULLETSPEED, 0);
             }
             break ;
         default:

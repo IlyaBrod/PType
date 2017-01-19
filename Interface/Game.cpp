@@ -80,3 +80,27 @@ void Game::deleteObject(int i){
     //delete objects[i];
     objects.erase(objects.begin()+i);
 }
+
+void Game::autoMove()
+{
+	Object *pObj ;
+	for(unsigned int i=0;i<objects.size();i++)
+	{
+		pObj = objects[i] ;
+		
+		switch(pObj->get_team()){
+			case PBULLET:
+				pObj->move(DEFAULT_BULLETSPEED,0);
+				
+				break ;
+			case ENEMY :
+				pObj->move(-10, 0);
+				break ;
+		}
+		if(pObj->getX() < -255 || pObj->getX() > SCREENW+255 || pObj->getY() < -128 || pObj->getY() > SCREENH+128)
+			pObj-> set_alive(false);
+		
+		//pObj -> autoMove(STRAIGHT);
+	}
+	
+}

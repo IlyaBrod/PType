@@ -1,6 +1,6 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy(std::string texturePath): Unit(texturePath, Point(SCREENW, SCREENH/(rand()%16)), sf::IntRect(0,0,0,0), 16, 16){
+Enemy::Enemy(std::string texturePath): Unit(texturePath, Point(SCREENW/2, SCREENH/(rand()%16)), sf::IntRect(0,0,0,0), 16, 16){
     hitbox.left = getX();
     hitbox.top = getY();
     hitbox.width = getTextureWidth();
@@ -59,7 +59,7 @@ void Enemy::autoMove(int t, Object *obj){
             move(-speed*2/3, 0);
             break ;
     }
-    if(getX() < -255 || getX() > SCREENW+255 || getY() < -128 || getX() > SCREENH+128)
+    if(getX() < -255 || getX() > SCREENW+255 || getY() < -128 || getY() > SCREENH+128)
         alive = false ;
 }
 

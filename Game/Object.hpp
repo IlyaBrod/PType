@@ -7,7 +7,7 @@
 #include "../Basic/Material.hpp"
 
 #include "../Config/WEAPON_CONFIG.hpp"
-
+#include <iostream>
 #include <cstdlib>
 
 enum {STRAIGHT, HOMING, HOMING_STRAIGHT};
