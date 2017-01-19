@@ -1,7 +1,7 @@
 #ifndef WEAPON_CONFIG_HPP
 #define WEAPON_CONFIG_HPP
 
-#define SHOVEL_DMG	1
+#define SHOVEL_DMG	16
 #define VODKA_DMG	4
 #define GUN_DMG		2
 #define LASER_DMG	12

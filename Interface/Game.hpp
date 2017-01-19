@@ -46,6 +46,8 @@ class Game{
         void setScaleFactor(float* scaleFactor);
 
         void backgroundMove();
+        
+        void autoMove();
 };
 
 

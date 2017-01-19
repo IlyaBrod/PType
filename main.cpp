@@ -87,6 +87,7 @@ int main(int argv, char** argc){
 	bool comUp=false, comLeft=false, comDown=false, comRight=false;
 	bool comShoot = false ;
 	int vecSize;
+	int fireSpeed = 16;
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
@@ -165,6 +166,7 @@ int main(int argv, char** argc){
 			}
         }
 
+        fireSpeed--;
         //AFFECT MOVE
         if(comUp)
         {
@@ -184,11 +186,18 @@ int main(int argv, char** argc){
 		}
 		if(comShoot)
 		{
-			game->addObject(game->getObject(0)->shoot());  ///a completer
+			
+			if(fireSpeed<=0)
+			{
+				fireSpeed=16;
+				game->addObject(game->getObject(0)->shoot());
+			}
+
+			comShoot = false ;
 		}
 
 		//ENEMY AUTO MOVE   ///////
-
+		game-> autoMove();
 
 		//ENEMY AUTO SHOOT  ///////
 
