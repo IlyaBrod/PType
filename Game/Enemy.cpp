@@ -10,7 +10,7 @@ Enemy::Enemy(std::string texturePath): Unit(texturePath, Point(SCREENW/2, SCREEN
     speed = ENEMY_DEFAULTSPEED ;
     shootTick = 16 ;
     movePattern = STRAIGHT ;
-
+    team = ENEMY;
     solid = true ;
     visible = true ;
     alive = true ;
@@ -21,7 +21,7 @@ Enemy::Enemy(std::string texturePath, Point point, sf::IntRect box, int life, in
     speed = ENEMY_DEFAULTSPEED ;
     shootTick = 16 ;
     movePattern = STRAIGHT ;
-
+    team = ENEMY;
     solid = true ;
     visible = true ;
     alive = true ;

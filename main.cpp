@@ -92,6 +92,7 @@ int main(int argv, char** argc){
 
 	int fireTicks = 8;
 	bool hasFired = false;
+
 	int enemySpawn = 10;
 
 	//##################	MAIN LOOP	################################

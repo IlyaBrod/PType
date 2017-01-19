@@ -19,11 +19,14 @@ Object::Object(std::string texturePath, Point origine, sf::IntRect box):Point(or
 }
 
 Object::Object(std::string texturePath, const Point &origine, const sf::IntRect &box, const bool &_solid, const bool &_visible):
-    Point(origine), Material(texturePath), hitbox(box), solid(_solid), visible(_visible) 
+    Point(origine), Material(texturePath), hitbox(box), solid(_solid), visible(_visible)
     {
 		alive=true;
 	}
 
+Object::~Object(){
+
+}
 
 void Object::inCollide(Object* obj)
 {
@@ -42,5 +45,5 @@ void Object::collide(Object* obj)
 void Object::move(int x, int y){
     setX(getX()+x);
     setY(getY()+y);
-    Sprite::move(x,y);
+    Sprite::setPosition(getX(), getY());
 }

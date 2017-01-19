@@ -9,6 +9,8 @@ class Point{
 		Point(const int &x=0, const int &y=0);
 		Point(const Point &p);
 
+		virtual ~Point(){}
+
 		Point& operator=(const Point &p);
 		Point& operator+=(const Point &p);
 		Point& operator-=(const Point &p);
