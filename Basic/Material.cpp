@@ -13,6 +13,8 @@ Material::Material()
 
 }
 
+ Material::~Material() {}
+
 Material::Material(std::string path,bool smooth)
 {
 	texture = new sf::Texture();
@@ -51,6 +53,17 @@ Material::Material(std::string path,int screen[2], bool smooth)
 
 	scaleFactors = new float[2];
 
+}
+
+void Material::mat_setX(int x)
+{
+	this->x=x;
+	Sprite::setPosition(x,this->y);
+}
+void Material::mat_setY(int y)
+{
+	this->x=x;
+	Sprite::setPosition(this->x,y);
 }
 
 float Material::mat_getX()

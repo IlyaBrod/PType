@@ -10,9 +10,10 @@ class Material : public sf::Sprite
 	private:
 		sf::Texture* texture;
 		
+		
 		int x;
 		int y;
-		
+
 		float* scaleFactors;
 		
 	public:
@@ -20,9 +21,15 @@ class Material : public sf::Sprite
 		Material(std::string path,bool smooth=true);
 		Material(std::string path,int screen[2],bool smooth=true);
 	
+		/**
+		 * Change/Get position characterictics
+		 */
 		float mat_getX();
 		float mat_getY();
 	
+		void mat_setX(int x);
+		void mat_setY(int y);
+
 		/**
 		 * Draw the material in a window
 		 * @param window
@@ -57,6 +64,8 @@ class Material : public sf::Sprite
 		 * Sprite setScale method
 		 */
 		void setScale(float factorX,float factorY);
+
+		virtual ~Material();
 	
 };
 

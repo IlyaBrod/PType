@@ -90,7 +90,8 @@ int main(int argv, char** argc){
 	bool comShoot = false ;
 	int vecSize;
 
-	int fireSpeed = 16;
+	int fireTicks = 8;
+	bool hasFired = false;
 	int enemySpawn = 10;
 
 	//##################	MAIN LOOP	################################
