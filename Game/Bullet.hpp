@@ -22,6 +22,8 @@ class Bullet : public Object{
         void inCollide(Object* obj);
         int getDamage(){return dmg ;}
 
+
+        void present();
 };
 
 #endif

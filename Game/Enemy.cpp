@@ -80,3 +80,8 @@ Object* Enemy::shoot(){
     }
     return NULL ;
 }
+
+
+void Enemy::present(){
+    Unit::present();
+}

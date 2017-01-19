@@ -14,8 +14,13 @@ Unit::Unit(std::string texturePath, Point point, sf::IntRect box ,int _life, int
 }
 
 
-
 void Unit::die()
 {
 	solid = false;
+}
+
+
+void Unit::present(){
+    Object::present();
+    std::cout << "  life:" << life << " CDmg:"<<collideDmg << std::endl ;
 }

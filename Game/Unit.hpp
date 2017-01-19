@@ -24,6 +24,8 @@ class Unit : public Object{
         //void addLives(const int nbLives){}
 		//void addBombs(const int nbBombs){}
         //void addScore(const int scorePoints){}
+
+        virtual void present();
 };
 
 #endif

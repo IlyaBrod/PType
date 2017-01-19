@@ -66,3 +66,9 @@ void Bullet::autoMove(int t, Object* obj){
     if(getX() < -255 || getX() > SCREENW+255 || getY() < -128 || getX() > SCREENH+128)
         alive = false ;
 }
+
+
+void Bullet::present(){
+    Object::present();
+    std::cout << "  dmg:" << dmg << std::endl ;
+}

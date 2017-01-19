@@ -31,6 +31,8 @@ class Player : public Unit{
         Bullet* shoot();
 
         void setWeapon(const Weapon_Type wpn){select_wpn = wpn ;}
+
+        void present();
 };
 
 #endif

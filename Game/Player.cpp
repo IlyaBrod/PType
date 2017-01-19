@@ -57,3 +57,8 @@ Bullet* Player::shoot(){
     Bullet* bullet = new Bullet(SHOVEL_PIC, Point(getX()+getTextureWidth()+1,getY()), PBULLET);
     return bullet ;
 }
+
+
+void Player::present(){
+    Unit::present();
+}
