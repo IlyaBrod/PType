@@ -1,6 +1,11 @@
 #include "Player.hpp"
 
-Player::Player(std::string texturePath, Point point, sf::IntRect box, int life) : Unit(texturePath,point,box,life) {}
+Player::Player(std::string texturePath, Point point, sf::IntRect box, int life) : Unit(texturePath,point,box,life)
+{
+    solid = true ;
+    visible = true ;
+    alive = true ;
+}
 
 void Player::inCollide(Object* obj){
     switch(obj->get_team()){
