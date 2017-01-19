@@ -116,58 +116,38 @@ int main(int argv, char** argc){
 			if (event.type == sf::Event::KeyPressed)
 			{
 				// MOVE ACTIVATE
-				if (event.key.code == sf::Keyboard::Left)
-				{
+				if (event.key.code == sf::Keyboard::Left){
 					comLeft=true ;
 				}
-
-				if(event.key.code ==sf::Keyboard::Right)
-				{
+				if(event.key.code ==sf::Keyboard::Right){
 					comRight = true ;
-
 				}
-
-				if(event.key.code ==sf::Keyboard::Up)
-				{
+				if(event.key.code ==sf::Keyboard::Up){
 					comUp = true ;
-
 				}
-
-				if(event.key.code ==sf::Keyboard::Down)
-				{
+				if(event.key.code ==sf::Keyboard::Down){
 					comDown = true ;
 				}
-
-				if(event.key.code ==sf::Keyboard::X)        //shoot command for player
-				{
+				if(event.key.code ==sf::Keyboard::X){        //shoot command for player{
 					comShoot = true ;
 				}
 			}
 			else if(event.type == sf::Event::KeyReleased)
 			{
 				//MOVE RELEASE
-				if (event.key.code ==sf::Keyboard::Left)
-				{
+				if (event.key.code ==sf::Keyboard::Left){
 					comLeft=false ;
 				}
-
-				if(event.key.code ==sf::Keyboard::Right)
-				{
+				if(event.key.code ==sf::Keyboard::Right){
 					comRight = false ;
 				}
-
-				if(event.key.code ==sf::Keyboard::Up)
-				{
+				if(event.key.code ==sf::Keyboard::Up){
 					comUp = false ;
 				}
-
-				if(event.key.code ==sf::Keyboard::Down)
-				{
+				if(event.key.code ==sf::Keyboard::Down){
 					comDown = false ;
 				}
-
-				if(event.key.code ==sf::Keyboard::X)    //shoot command for player
-				{
+				if(event.key.code ==sf::Keyboard::X){    //shoot command for player
 					comShoot = false ;
 					hasFired = false ;
 				}
@@ -177,26 +157,20 @@ int main(int argv, char** argc){
         if(fireTicks>0)
             fireTicks--;
         //AFFECT MOVE
-        if(comUp)
-        {
+        if(comUp){
 			game -> getObject(0) -> move(0,-Y_SPEED);
 		}
-		if(comDown)
-		{
+		if(comDown){
 			game -> getObject(0) -> move(0,Y_SPEED);
 		}
-		if(comLeft)
-		{
+		if(comLeft){
 			game -> getObject(0) -> move(-X_SPEED,0);
 		}
-		if(comRight)
-		{
+		if(comRight){
 			game -> getObject(0) -> move(X_SPEED,0);
 		}
-		if(comShoot)
-		{
-			if(fireTicks<=0 && hasFired == false)
-			{
+		if(comShoot){
+			if(fireTicks<=0 && hasFired == false){
 			    hasFired = true ;
 				fireTicks=8;
 				game->addObject(game->getObject(0)->shoot());
@@ -209,8 +183,7 @@ int main(int argv, char** argc){
 
 		//ADD ENEMY
 		enemySpawn--;
-		if(enemySpawn<=0)
-		{
+		if(enemySpawn<=0){
 			enemySpawn=100;
 			Enemy* br = new Enemy(ENEMY_BEAR);
 			br -> setScale(gameMenu.getScaleFactor()[0],gameMenu.getScaleFactor()[1]);
@@ -236,11 +209,9 @@ int main(int argv, char** argc){
             }
         }
 
-
         ///////////////////////////////////////////////
 
-        if(mainMenu.isVisible()==false && gameStatus!=inGame)
-        {
+        if(mainMenu.isVisible()==false && gameStatus!=inGame){
 			gameStatus=inExit;
 		}
 
@@ -251,17 +222,14 @@ int main(int argv, char** argc){
 		switch(gameStatus)
 		{
 			case(inMenu):							//main Menu
-				if(mainMenu.isScore())
-				{
+				if(mainMenu.isScore()){
 					gameStatus=inScore;
 					scoreMenu.setVisible();
 				}
-				else if(mainMenu.isOption())
-				{
+				else if(mainMenu.isOption()){
 					//gameStatus=inOption;
 				}
-				else if(mainMenu.isPlay())
-				{
+				else if(mainMenu.isPlay()){
 					gameMenu.setVisible();
 					mainMenu.exit();
 					gameStatus=inGame;
