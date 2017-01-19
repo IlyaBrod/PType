@@ -269,7 +269,6 @@ int main(int argv, char** argc){
 				mainMenu.draw(window);
 
 				gameMenu.update();
-				mainMenu.update();
 				scoreMenu.update();
 				break;
 

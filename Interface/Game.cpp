@@ -95,7 +95,6 @@ void Game::autoMove()
 				break ;
 			case ENEMY :		
 				pObj->move(-ENEMY_SPEED, 0);
-				std::cout<<"enemy move"<<std::endl;
 				break ;
             default:
                 break;
