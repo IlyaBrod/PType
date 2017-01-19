@@ -52,7 +52,7 @@ void Player::addPower(const int powerUp){
         wpn_power[select_wpn] = MAXPOWER ;
 }
 
-Object* Player::shoot(){
+Bullet* Player::shoot(){
     Bullet* bullet = new Bullet(SHOVEL_PIC, Point(getX()+getTextureWidth()+1,getY()), PBULLET);
     return bullet ;
 }

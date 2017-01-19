@@ -10,7 +10,7 @@
 #include <iostream>
 #include <cstdlib>
 
-enum {STRAIGHT, HOMING, HOMING_STRAIGHT};
+enum {STRAIGHT=0, HOMING=1, HOMING_STRAIGHT=2};
 enum Team{PLAYER, ENEMY, PBULLET, EBULLET, DECOR, ITEM};
 
 class Object : public Point, public Material{
