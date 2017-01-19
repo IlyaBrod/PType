@@ -12,8 +12,10 @@
 #include "Config/INTERFACE_CONFIG.hpp"
 #include "Config/PLAYER_CONFIG.hpp"
 #include "Config/WEAPON_CONFIG.hpp"
+#include "Config/ENEMY_CONFIG.hpp"
 
 #include "Interface/Game.hpp"
+#include "Game/Enemy.hpp"
 
 using namespace std ;
 
@@ -88,6 +90,7 @@ int main(int argv, char** argc){
 	bool comShoot = false ;
 	int vecSize;
 	int fireSpeed = 16;
+	int enemySpawn = 10;
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
@@ -198,6 +201,17 @@ int main(int argv, char** argc){
 
 		//ENEMY AUTO MOVE   ///////
 		game-> autoMove();
+
+
+		//ADD ENEMY
+		enemySpawn--;
+		if(enemySpawn<=0)
+		{
+			enemySpawn=100;
+			Enemy* br = new Enemy(ENEMY_BEAR);
+			br -> setScale(gameMenu.getScaleFactor()[0],gameMenu.getScaleFactor()[1]);
+			game->addObject(br);
+		}
 
 		//ENEMY AUTO SHOOT  ///////
 

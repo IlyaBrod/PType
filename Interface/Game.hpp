@@ -7,6 +7,7 @@
 
 #include "../Config/PLAYER_CONFIG.hpp"
 #include "../Config/INTERFACE_CONFIG.hpp"
+#include "../Config/ENEMY_CONFIG.hpp"
 
 #include "../Game/Object.hpp"
 #include "../Game/Bullet.hpp"
