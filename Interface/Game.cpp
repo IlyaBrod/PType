@@ -55,7 +55,7 @@ void Game::setScaleFactor(float* sf)
 	{
 		objects.at(i) -> setScale(scaleFactor[0],scaleFactor[1]);
 	}
-	
+
 	background[0].setScale(scaleFactor[0],scaleFactor[1]);
 	background[1].setScale(scaleFactor[0],scaleFactor[1]);
 }
@@ -71,7 +71,7 @@ void Game::backgroundMove()
 	{
 		background[1].move(2*SCREENW,0);
 	}
-	
+
 	background[0].move(-GAME_BACKGROUND_SPEED,0);
 	background[1].move(-GAME_BACKGROUND_SPEED,0);
 }
@@ -87,20 +87,22 @@ void Game::autoMove()
 	for(unsigned int i=0;i<objects.size();i++)
 	{
 		pObj = objects[i] ;
-		
+
 		switch(pObj->get_team()){
 			case PBULLET:
 				pObj->move(DEFAULT_BULLETSPEED,0);
-				
+
 				break ;
 			case ENEMY :
 				pObj->move(-10, 0);
 				break ;
+            default:
+                break;
 		}
 		if(pObj->getX() < -255 || pObj->getX() > SCREENW+255 || pObj->getY() < -128 || pObj->getY() > SCREENH+128)
 			pObj-> set_alive(false);
-		
+
 		//pObj -> autoMove(STRAIGHT);
 	}
-	
+
 }

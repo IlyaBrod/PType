@@ -87,7 +87,8 @@ int main(int argv, char** argc){
 	bool comUp=false, comLeft=false, comDown=false, comRight=false;
 	bool comShoot = false ;
 	int vecSize;
-	int fireSpeed = 16;
+	int fireTicks = 0;
+	bool hasFired = false ;
 	//##################	MAIN LOOP	################################
     while (gameStatus!=inExit) //window.isOpen()
     {
@@ -162,11 +163,13 @@ int main(int argv, char** argc){
 				if(event.key.code ==sf::Keyboard::X)    //shoot command for player
 				{
 					comShoot = false ;
+					hasFired = false ;
 				}
 			}
         }
 
-        fireSpeed--;
+        if(fireTicks>0)
+            fireTicks--;
         //AFFECT MOVE
         if(comUp)
         {
@@ -186,14 +189,12 @@ int main(int argv, char** argc){
 		}
 		if(comShoot)
 		{
-			
-			if(fireSpeed<=0)
+			if(fireTicks<=0 && hasFired == false)
 			{
-				fireSpeed=16;
+			    hasFired = true ;
+				fireTicks=8;
 				game->addObject(game->getObject(0)->shoot());
 			}
-
-			comShoot = false ;
 		}
 
 		//ENEMY AUTO MOVE   ///////
